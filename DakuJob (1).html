@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creator Plug — Get Discovered. Get Booked. Grow Your Brand.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ─── */
+:root {
+  --green:        #1A7A4A;
+  --green-mid:    #22A060;
+  --green-bright: #2DC06E;
+  --green-light:  #E8F5EE;
+  --green-lime:   #9EE870;
+  --black:        #0A0C0A;
+  --ink:          #141814;
+  --ink-2:        #1E221E;
+  --body:         #3D4A3D;
+  --muted:        #6B7A6B;
+  --border:       #E2E8E2;
+  --border-soft:  #EEF2EE;
+  --surface:      #F5F8F5;
+  --white:        #FFFFFF;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 100px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button,input,select{font-family:inherit}
+
+/* ─── TYPE ─── */
+.h-display{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(36px,6vw,72px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white)}
+.h-1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.1;letter-spacing:-0.025em}
+.h-2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(22px,3vw,36px);font-weight:700;line-height:1.15;letter-spacing:-0.02em}
+.h-3{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(18px,2.2vw,24px);font-weight:700;line-height:1.25;letter-spacing:-0.01em}
+.body-lg{font-size:17px;line-height:1.7;color:var(--body)}
+.body-md{font-size:15px;line-height:1.65;color:var(--body)}
+.body-sm{font-size:13px;line-height:1.6;color:var(--muted)}
+.label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green)}
+.green{color:var(--green-mid)}
+.strikethrough{text-decoration:line-through;opacity:0.5}
+
+/* ─── LAYOUT ─── */
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+.section{padding:80px 0}
+.section-sm{padding:56px 0}
+@media(max-width:768px){.section{padding:56px 0}.section-sm{padding:40px 0}}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+.rv.in{opacity:1;transform:none}
+
+/* ─── NAVBAR ─── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 32px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;
+  transition:background 0.3s,box-shadow 0.3s,backdrop-filter 0.3s;
+}
+#nav.solid{background:rgba(255,255,255,0.97);box-shadow:0 1px 0 var(--border);backdrop-filter:blur(12px)}
+
+/* Logo — always one line */
+.nav-logo{
+  display:flex;align-items:center;gap:9px;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;
+  letter-spacing:-0.02em;color:var(--white);
+  transition:color 0.3s;text-decoration:none;
+  white-space:nowrap;flex-shrink:0;
+}
+#nav.solid .nav-logo{color:var(--ink)}
+.logo-mark{
+  width:32px;height:32px;min-width:32px;
+  background:var(--green-bright);border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:0 2px 10px rgba(45,192,110,0.4)
+}
+.logo-mark svg{width:18px;height:18px}
+
+/* Center links */
+.nav-center{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav-link{
+  font-size:13.5px;font-weight:500;
+  color:rgba(255,255,255,0.82);
+  padding:7px 13px;border-radius:var(--r-pill);
+  transition:all 0.2s;cursor:pointer;border:none;background:none;
+  white-space:nowrap;
+}
+#nav.solid .nav-link{color:var(--body)}
+.nav-link:hover{color:var(--white);background:rgba(255,255,255,0.14)}
+#nav.solid .nav-link:hover{color:var(--ink);background:var(--surface)}
+
+/* Right buttons */
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.nav-divider{width:1px;height:18px;background:rgba(255,255,255,0.2);margin:0 4px;flex-shrink:0}
+#nav.solid .nav-divider{background:var(--border)}
+.btn-nav{
+  font-size:13px;font-weight:600;
+  padding:9px 18px;border-radius:var(--r-pill);
+  border:none;cursor:pointer;
+  transition:all 0.2s;
+  display:inline-flex;align-items:center;gap:5px;
+  white-space:nowrap;
+}
+.btn-nav-ghost{background:rgba(255,255,255,0.1);color:var(--white);border:1.5px solid rgba(255,255,255,0.28)}
+.btn-nav-ghost:hover{background:rgba(255,255,255,0.18)}
+#nav.solid .btn-nav-ghost{background:var(--white);color:var(--ink);border-color:var(--border);box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+#nav.solid .btn-nav-ghost:hover{background:var(--surface);border-color:var(--green-mid)}
+.btn-nav-green{background:var(--green-bright);color:var(--white);box-shadow:0 2px 10px rgba(45,192,110,0.3)}
+.btn-nav-green:hover{background:var(--green-mid);transform:translateY(-1px);box-shadow:0 5px 18px rgba(45,192,110,0.4)}
+
+/* Responsive nav */
+@media(max-width:900px){
+  .nav-center{display:none}
+}
+@media(max-width:640px){
+  #nav{padding:0 16px;height:60px;gap:10px}
+  .nav-logo{font-size:15px;gap:8px}
+  .logo-mark{width:30px;height:30px;min-width:30px;border-radius:8px}
+  .logo-mark svg{width:16px;height:16px}
+  .nav-divider{display:none}
+  .btn-nav{font-size:12px;padding:8px 14px}
+  .btn-nav svg{display:none}
+}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding-bottom:0;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=80');
+  background-size:cover;background-position:center top;
+  transform:scale(1.04);
+  animation:zoomin 12s ease-out forwards;
+}
+@keyframes zoomin{from{transform:scale(1.04)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(8,16,8,0.38) 0%, rgba(8,16,8,0.52) 45%, rgba(4,12,4,0.94) 100%)}
+.hero-content{position:relative;z-index:2;padding:88px 32px 0;max-width:1240px;margin:0 auto;width:100%}
+@media(max-width:768px){.hero-content{padding:76px 20px 0}}
+@media(max-width:480px){.hero-content{padding:70px 18px 0}}
+.hero-kicker{display:inline-flex;align-items:center;gap:7px;background:rgba(45,192,110,0.18);border:1px solid rgba(45,192,110,0.35);border-radius:var(--r-pill);padding:5px 14px 5px 8px;margin-bottom:20px}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--green-lime);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.kicker-text{font-size:12px;font-weight:600;color:var(--green-lime);letter-spacing:0.06em;text-transform:uppercase}
+.hero-title{max-width:700px;margin-bottom:20px}
+.hero-title .line2{color:var(--green-lime)}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.72);line-height:1.65;max-width:480px;margin-bottom:28px}
+@media(max-width:640px){.hero-sub{font-size:15px;margin-bottom:22px}}
+
+/* Hero segment */
+.hero-segment{display:inline-flex;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:var(--r-pill);padding:4px;gap:2px;margin-bottom:32px;backdrop-filter:blur(8px)}
+.seg-opt{font-size:14px;font-weight:600;padding:9px 22px;border-radius:var(--r-pill);border:none;cursor:pointer;color:rgba(255,255,255,0.65);background:none;transition:all 0.2s;letter-spacing:0.01em}
+.seg-opt.active{background:var(--green-bright);color:var(--white);box-shadow:0 2px 12px rgba(45,192,110,0.4)}
+
+/* Floating search card */
+.hero-search-card{
+  position:relative;z-index:2;
+  background:var(--white);
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+  padding:24px 28px 32px;
+  margin:24px auto 0;
+  max-width:1240px;
+  box-shadow:0 -8px 40px rgba(0,0,0,0.25);
+}
+.search-card-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px}
+.search-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:0;border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:var(--white);box-shadow:var(--shadow-search)}
+.search-field{display:flex;align-items:center;gap:10px;padding:14px 18px;border-right:1.5px solid var(--border);cursor:pointer;transition:background 0.15s;position:relative}
+.search-field:last-of-type{border-right:none}
+.search-field:hover{background:var(--surface)}
+.search-field:focus-within{background:var(--green-light)}
+.sf-icon{color:var(--green);flex-shrink:0;opacity:0.7}
+.sf-inner{display:flex;flex-direction:column;gap:1px;flex:1}
+.sf-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.sf-input{font-size:14px;font-weight:500;color:var(--ink);border:none;outline:none;background:none;width:100%;padding:0}
+.sf-input::placeholder{color:var(--muted);font-weight:400}
+.search-divider{width:1.5px;background:var(--border);flex-shrink:0}
+.search-btn{background:var(--green-bright);color:var(--white);border:none;padding:16px 28px;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background 0.2s;font-family:'DM Sans',sans-serif;border-radius:0 calc(var(--r-lg) - 2px) calc(var(--r-lg) - 2px) 0;white-space:nowrap}
+.search-btn:hover{background:var(--green-mid)}
+.search-btn svg{flex-shrink:0}
+@media(max-width:900px){
+  .search-row{grid-template-columns:1fr;border-radius:var(--r-md)}
+  .search-field{border-right:none;border-bottom:1.5px solid var(--border)}
+  .search-btn{border-radius:0 0 calc(var(--r-md) - 2px) calc(var(--r-md) - 2px);justify-content:center;padding:16px}
+}
+
+/* ─── FOR WHO SECTION ─── */
+.for-who-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.for-who-grid{grid-template-columns:1fr}}
+.for-who-card{border-radius:var(--r-xl);padding:44px 40px;border:1.5px solid var(--border);background:var(--white);transition:all 0.25s;cursor:pointer;display:block;text-decoration:none;position:relative;overflow:hidden}
+.for-who-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s}
+.for-who-card.model::before{background:linear-gradient(135deg, rgba(26,122,74,0.06) 0%, transparent 60%)}
+.for-who-card:hover{border-color:var(--green-mid);box-shadow:0 12px 40px rgba(26,122,74,0.1);transform:translateY(-3px)}
+.for-who-card:hover::before{opacity:1}
+.card-emoji-wrap{width:56px;height:56px;border-radius:var(--r-md);background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:24px;border:1.5px solid var(--border-soft)}
+.for-who-card h3{margin-bottom:12px;color:var(--ink)}
+.for-who-card p{font-size:15px;color:var(--body);line-height:1.65;margin-bottom:28px}
+.feature-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.feature-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--body)}
+.f-check{width:18px;height:18px;border-radius:50%;background:var(--green-light);border:1.5px solid var(--green-bright);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.f-check svg{width:9px;height:9px}
+.card-cta-btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:12px 24px;border-radius:var(--r-pill);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.cta-green{background:var(--green-bright);color:var(--white)}
+.cta-green:hover{background:var(--green-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(45,192,110,0.3)}
+.cta-outline{background:var(--white);color:var(--green);border:2px solid var(--green-bright);padding:11px 24px}
+.cta-outline:hover{background:var(--green-light)}
+
+/* ─── HOW IT WORKS ─── */
+.how-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+@media(max-width:768px){.steps-row{grid-template-columns:1fr;gap:0}}
+.step-connector{position:absolute;top:40px;left:calc(33.33% - 12px);right:calc(33.33% - 12px);height:2px;background:repeating-linear-gradient(90deg,var(--green-bright) 0,var(--green-bright) 8px,transparent 8px,transparent 16px);z-index:0}
+@media(max-width:768px){.step-connector{display:none}}
+.step-card{padding:40px 32px;text-align:center;position:relative;z-index:1;border-right:1px solid var(--border)}
+.step-card:last-child{border-right:none}
+@media(max-width:768px){.step-card{border-right:none;border-bottom:1px solid var(--border);text-align:left;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding:28px 24px}}
+.step-num-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+@media(max-width:768px){.step-num-wrap{margin-bottom:0;justify-content:flex-start}}
+.step-num{width:52px;height:52px;border-radius:50%;background:var(--green-bright);color:var(--white);font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(45,192,110,0.3)}
+.step-card h3{margin-bottom:10px;color:var(--ink)}
+.step-card p{font-size:14px;color:var(--body)}
+.step-text-wrap{}
+
+/* ─── FEATURED PROFILES ─── */
+.profile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+@media(max-width:600px){.profile-grid{grid-template-columns:1fr 1fr}}
+.p-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;cursor:pointer;transition:all 0.25s}
+.p-card:hover{border-color:var(--green-mid);box-shadow:0 8px 32px rgba(26,122,74,0.12);transform:translateY(-3px)}
+.p-card-media{aspect-ratio:3/4;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden}
+.p-card-media.biz{aspect-ratio:16/9}
+.p-media-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:72px;filter:blur(1px);opacity:0.4;transform:scale(1.1)}
+.p-media-icon{position:relative;z-index:1;font-size:52px}
+.p-card-verified{position:absolute;top:12px;right:12px;background:var(--white);border-radius:var(--r-pill);padding:4px 10px;display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--green);box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+.v-dot{width:5px;height:5px;border-radius:50%;background:var(--green-bright)}
+.p-card-body{padding:14px 16px 18px}
+.p-card-name{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.p-card-loc{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;margin-bottom:10px;font-weight:500}
+.p-card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.p-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:var(--r-pill);background:var(--green-light);color:var(--green);border:1px solid rgba(45,192,110,0.25)}
+.p-card-btn{width:100%;padding:9px;border-radius:var(--r-md);border:1.5px solid var(--border);background:var(--white);font-size:12px;font-weight:700;color:var(--ink);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;letter-spacing:0.01em}
+.p-card-btn:hover{background:var(--green-bright);color:var(--white);border-color:var(--green-bright)}
+
+/* ─── TRUST ─── */
+.trust-bg{background:var(--ink);color:var(--white)}
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,0.06);border-radius:var(--r-xl);overflow:hidden;border:1px solid rgba(255,255,255,0.08)}
+@media(max-width:700px){.trust-grid{grid-template-columns:1fr}}
+.trust-item{padding:36px 32px;background:var(--ink);transition:background 0.2s}
+.trust-item:hover{background:var(--ink-2)}
+.trust-icon-box{width:44px;height:44px;border-radius:var(--r-md);background:rgba(45,192,110,0.15);border:1px solid rgba(45,192,110,0.3);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.trust-item h3{font-size:17px;color:var(--white);margin-bottom:8px}
+.trust-item p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.65}
+.trust-status{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:11px;font-weight:700;color:var(--green-lime);text-transform:uppercase;letter-spacing:0.07em}
+
+/* ─── WHAT YOU CAN DO ─── */
+.capabilities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.capabilities-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.capabilities-grid{grid-template-columns:1fr}}
+.cap-card{padding:32px 28px;border:1.5px solid var(--border);border-radius:var(--r-xl);background:var(--white);transition:all 0.22s}
+.cap-card:hover{border-color:var(--green-mid);background:var(--green-light);box-shadow:0 6px 24px rgba(26,122,74,0.1)}
+.cap-icon{font-size:28px;margin-bottom:16px}
+.cap-card h3{font-size:16px;margin-bottom:8px;color:var(--ink)}
+.cap-card p{font-size:13px;color:var(--body)}
+
+/* ─── STATS BAR ─── */
+.stats-bar{background:var(--green-bright);padding:40px 0}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+@media(max-width:700px){.stats-row{grid-template-columns:1fr 1fr}}
+.stat-box{padding:20px;border-right:1px solid rgba(255,255,255,0.2)}
+.stat-box:last-child{border-right:none}
+.stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1}
+.stat-l{font-size:13px;color:rgba(255,255,255,0.8);margin-top:4px;font-weight:500}
+
+/* ─── FINAL CTA ─── */
+.final-cta{
+  position:relative;overflow:hidden;
+  background:var(--black);
+  padding:96px 24px;text-align:center;
+}
+.final-cta-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80');
+  background-size:cover;background-position:center;
+  opacity:0.12;
+}
+.final-cta-content{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.final-cta h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(32px,5vw,54px);font-weight:800;color:var(--white);letter-spacing:-0.025em;margin-bottom:16px}
+.final-cta h2 span{color:var(--green-lime)}
+.final-cta p{font-size:17px;color:rgba(255,255,255,0.6);margin-bottom:40px;line-height:1.65}
+.cta-pair{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-big{font-size:15px;font-weight:700;padding:15px 32px;border-radius:var(--r-pill);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px}
+.cta-big.primary{background:var(--green-bright);color:var(--white)}
+.cta-big.primary:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,192,110,0.4)}
+.cta-big.secondary{background:rgba(255,255,255,0.1);color:var(--white);border:1.5px solid rgba(255,255,255,0.25)}
+.cta-big.secondary:hover{background:rgba(255,255,255,0.18)}
+.cta-note{font-size:13px;color:rgba(255,255,255,0.4);margin-top:16px}
+
+/* ─── TICKER ─── */
+.ticker-wrap{background:var(--green-bright);overflow:hidden;padding:12px 0;border-top:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08)}
+.ticker-track{display:flex;gap:48px;animation:tick 22s linear infinite;width:max-content}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:13px;font-weight:700;color:var(--white);white-space:nowrap;display:flex;align-items:center;gap:10px;opacity:0.9}
+.ticker-item span{opacity:0.5;font-size:10px}
+
+/* ─── SECTION HEADER ─── */
+.sec-header{margin-bottom:52px}
+.sec-header.center{text-align:center}
+.sec-header.center p{margin:0 auto;max-width:480px}
+.sec-header h2{margin:8px 0 16px}
+.sec-header p{font-size:16px;color:var(--body);line-height:1.65}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink-2);padding:64px 24px 32px;color:var(--white)}
+.footer-grid{display:grid;grid-template-columns:260px repeat(3,1fr);gap:48px;margin-bottom:48px}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand-name{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.footer-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.65;max-width:220px}
+.footer-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.fbadge{font-size:10px;font-weight:600;padding:4px 10px;border-radius:var(--r-pill);background:rgba(45,192,110,0.15);color:var(--green-lime);border:1px solid rgba(45,192,110,0.25);display:flex;align-items:center;gap:4px}
+.fbadge-dot{width:4px;height:4px;border-radius:50%;background:var(--green-lime)}
+.footer-col-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.5);transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:13px;color:rgba(255,255,255,0.3)}
+.socials{display:flex;gap:8px}
+.soc-btn{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;font-size:14px;transition:background 0.2s;cursor:pointer}
+.soc-btn:hover{background:rgba(255,255,255,0.15)}
+
+/* ─── MOBILE NAV ─── */
+.mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:199;background:rgba(255,255,255,0.97);border-top:1px solid var(--border);padding:8px 0 max(10px,env(safe-area-inset-bottom));backdrop-filter:blur(16px)}
+.mob-nav-row{display:flex;justify-content:space-around;align-items:center}
+.mob-nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 12px;cursor:pointer;border:none;background:none;color:var(--muted);transition:color 0.2s;position:relative;min-width:52px}
+.mob-nav-item.active{color:var(--green)}
+.mob-nav-item svg{width:22px;height:22px;stroke-width:1.8}
+.mob-nav-item span{font-size:10px;font-weight:600;letter-spacing:0.01em}
+.mob-nav-center{width:52px;height:52px;background:var(--green-bright);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(45,192,110,0.45);margin-top:-18px;border:3px solid white;cursor:pointer;transition:all 0.2s}
+.mob-nav-center:hover{background:var(--green-mid);transform:scale(1.06)}
+.mob-nav-center svg{width:22px;height:22px;color:white;stroke-width:2.5}
+.mob-nav-badge{position:absolute;top:2px;right:6px;background:var(--green-bright);color:white;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid white}
+.mob-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 16px;border:none;background:none;cursor:pointer;color:var(--muted);transition:color 0.2s;text-decoration:none}
+.mob-btn.active{color:var(--green)}
+.mob-btn svg{width:22px;height:22px;stroke-width:1.7}
+.mob-btn span{font-size:9px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+.mob-center-btn{background:var(--green-bright);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;margin-top:-12px;box-shadow:0 4px 20px rgba(45,192,110,0.45)}
+@media(max-width:768px){
+  .mob-nav{display:block}
+  body{padding-bottom:68px}
+  .hero-search-card{padding:18px 16px 22px;margin:20px 0 0}
+  .for-who-card{padding:28px 24px}
+}
+
+/* ─── DIVIDER ─── */
+hr{border:none;border-top:1px solid var(--border)}
+
+/* Section label bg alternation */
+.bg-surface{background:var(--surface)}
+.bg-ink{background:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav id="nav">
+  <a href="#home" class="nav-logo" onclick="event.preventDefault();showScreen('home')">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/>
+        <circle cx="8" cy="12" r="2.2" fill="white"/>
+        <path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Creator Plug
+  </a>
+  <div class="nav-center" id="navCenter">
+    <button class="nav-link nav-hide" onclick="document.getElementById('how')&&document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</button>
+    <button class="nav-link nav-hide" onclick="showScreen('directory')">Directory</button>
+    <button class="nav-link nav-hide" onclick="document.getElementById('who')&&document.getElementById('who').scrollIntoView({behavior:'smooth'})">For Creators</button>
+    <button class="nav-link nav-hide" onclick="document.getElementById('who')&&document.getElementById('who').scrollIntoView({behavior:'smooth'})">For Businesses</button>
+  </div>
+  <div class="nav-right" id="navRight">
+    <div class="nav-divider"></div>
+    <button class="btn-nav btn-nav-ghost" onclick="showScreen('login')">Log in</button>
+    <button class="btn-nav btn-nav-green" onclick="showScreen('signup')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+      Join free
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<div class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-kicker rv">
+      <div class="kicker-dot"></div>
+      <span class="kicker-text">Live globally — Models & Businesses</span>
+    </div>
+
+    <div class="hero-title rv d1">
+      <div class="h-display">Get Discovered.</div>
+      <div class="h-display">Get Booked.</div>
+      <div class="h-display line2">Grow Your Brand.</div>
+    </div>
+
+    <p class="hero-sub rv d2">
+      Creator Plug connects models, food creators, and influencers with restaurants, cafés, and businesses ready to collaborate.
+    </p>
+
+    <div class="rv d3">
+      <div class="hero-segment">
+        <button class="seg-opt active" onclick="setSeg(this)">Models</button>
+        <button class="seg-opt" onclick="setSeg(this)">Businesses</button>
+        <button class="seg-opt" onclick="setSeg(this)">All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating search card -->
+  <div class="hero-search-card rv d4">
+    <div class="search-card-label">Find creators & businesses</div>
+    <div class="search-row">
+      <div class="search-field">
+        <svg class="sf-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg>
+        <div class="sf-inner">
+          <span class="sf-label">Location</span>
+          <input class="sf-input" type="text" placeholder="City, country…" id="searchLoc">
+        </div>
+      </div>
+      <div class="search-field">
+        <svg class="sf-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <div class="sf-inner">
+          <span class="sf-label">Category</span>
+          <select class="sf-input" style="cursor:pointer">
+            <option value="" disabled selected>Model / Business</option>
+            <option>Models</option>
+            <option>Businesses</option>
+            <option>All</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-field" style="border-right:none">
+        <svg class="sf-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a1 1 0 00-1 1v10a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/><path d="M16 3v4M8 3v4"/></svg>
+        <div class="sf-inner">
+          <span class="sf-label">Niche / Cuisine</span>
+          <select class="sf-input" style="cursor:pointer">
+            <option value="" disabled selected>Any niche</option>
+            <option>Food Content</option>
+            <option>Lifestyle</option>
+            <option>Restaurant</option>
+            <option>Café / Takeaway</option>
+            <option>Reviews / Reels</option>
+            <option>West African</option>
+            <option>Asian Cuisine</option>
+          </select>
+        </div>
+      </div>
+      <button class="search-btn" onclick="doSearch()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TICKER ══════════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-item">✓ Verified Profiles <span>◆</span></div>
+    <div class="ticker-item">AI Content Moderation <span>◆</span></div>
+    <div class="ticker-item">reCAPTCHA v3 Protected <span>◆</span></div>
+    <div class="ticker-item">Direct Contact System <span>◆</span></div>
+    <div class="ticker-item">PR Pack Downloads <span>◆</span></div>
+    <div class="ticker-item">UK · US · Germany · Canada <span>◆</span></div>
+    <div class="ticker-item">GDPR Compliant <span>◆</span></div>
+    <div class="ticker-item">Zero NSFW Tolerance <span>◆</span></div>
+    <!-- repeat for loop -->
+    <div class="ticker-item">✓ Verified Profiles <span>◆</span></div>
+    <div class="ticker-item">AI Content Moderation <span>◆</span></div>
+    <div class="ticker-item">reCAPTCHA v3 Protected <span>◆</span></div>
+    <div class="ticker-item">Direct Contact System <span>◆</span></div>
+    <div class="ticker-item">PR Pack Downloads <span>◆</span></div>
+    <div class="ticker-item">UK · US · Germany · Canada <span>◆</span></div>
+    <div class="ticker-item">GDPR Compliant <span>◆</span></div>
+    <div class="ticker-item">Zero NSFW Tolerance <span>◆</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════ WHO IS IT FOR ══════════════════ -->
+<section class="section bg-surface" id="who">
+  <div class="container">
+    <div class="sec-header center rv">
+      <span class="label">Who it's for</span>
+      <h2 class="h-1">Two paths. One platform.</h2>
+      <p>Whether you're a creator looking for brand deals or a business seeking content — Creator Plug is built for both of you.</p>
+    </div>
+
+    <div class="for-who-grid">
+      <a href="#" class="for-who-card model rv">
+        <div class="card-img-wrap" style="width:64px;height:64px;border-radius:var(--r-md);overflow:hidden;margin-bottom:24px;border:2px solid var(--border-soft)">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=128&q=80" alt="Creator" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <h3 class="h-2">For Models &amp; Creators</h3>
+        <p>Build your verified public profile, showcase your portfolio, and get discovered by restaurants and food businesses that need exactly your style.</p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Profile with photos, videos & bio
+          </div>
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Browse & download business PR packs
+          </div>
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Contact businesses directly — no agency
+          </div>
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Track profile views & reach analytics
+          </div>
+        </div>
+        <button class="card-cta-btn cta-green">Create Model Profile →</button>
+      </a>
+
+      <a href="#" class="for-who-card rv d1">
+        <div class="card-img-wrap" style="width:64px;height:64px;border-radius:var(--r-md);overflow:hidden;margin-bottom:24px;border:2px solid var(--border-soft)">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=128&q=80" alt="Restaurant" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <h3 class="h-2">For Restaurants &amp; Businesses</h3>
+        <p>Upload your menu, gallery, and PR files. Let verified food creators discover you and reach out directly. No agencies, no waiting, no fees.</p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Business profile with logo & branding
+          </div>
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Menu uploads (PDF + images)
+          </div>
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Upload PR packs with contact info
+          </div>
+          <div class="feature-item">
+            <div class="f-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+            Receive messages from verified creators
+          </div>
+        </div>
+        <button class="card-cta-btn cta-outline">List Your Business →</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ STATS ══════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-box rv"><div class="stat-n">12K+</div><div class="stat-l">Verified Creators</div></div>
+      <div class="stat-box rv d1"><div class="stat-n">3,400+</div><div class="stat-l">Listed Businesses</div></div>
+      <div class="stat-box rv d2"><div class="stat-n">40+</div><div class="stat-l">Cities Covered</div></div>
+      <div class="stat-box rv d3"><div class="stat-n">100%</div><div class="stat-l">Admin Verified</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ HOW IT WORKS ══════════════════ -->
+<section class="section how-bg" id="how">
+  <div class="container">
+    <div class="sec-header center rv">
+      <span class="label">How it works</span>
+      <h2 class="h-1">Simple. Fast. Effective.</h2>
+      <p>No agencies. No gatekeeping. Three steps from sign-up to your first collaboration.</p>
+    </div>
+
+    <div class="steps-row">
+      <div class="step-connector"></div>
+      <div class="step-card rv">
+        <div class="step-num-wrap"><div class="step-num">1</div></div>
+        <div class="step-text-wrap">
+          <h3 class="h-3">Create Your Profile</h3>
+          <p class="body-sm" style="margin-top:8px;">Sign up as a Model or Business. Upload photos, videos, menus, social links. Admin reviews and approves every profile before it goes live.</p>
+        </div>
+      </div>
+      <div class="step-card rv d1">
+        <div class="step-num-wrap"><div class="step-num">2</div></div>
+        <div class="step-text-wrap">
+          <h3 class="h-3">Get Discovered</h3>
+          <p class="body-sm" style="margin-top:8px;">Your profile is listed in the global directory with smart filters by location, category, niche, and verified status.</p>
+        </div>
+      </div>
+      <div class="step-card rv d2">
+        <div class="step-num-wrap"><div class="step-num">3</div></div>
+        <div class="step-text-wrap">
+          <h3 class="h-3">Connect Instantly</h3>
+          <p class="body-sm" style="margin-top:8px;">Models download PR packs and contact businesses directly via WhatsApp, email, or phone. Zero friction. Real results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FEATURED PROFILES ══════════════════ -->
+<section class="section" id="explore">
+  <div class="container">
+    <div class="sec-header rv" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:36px">
+      <div>
+        <span class="label">Featured</span>
+        <h2 class="h-1" style="margin:8px 0 8px">Models &amp; Businesses</h2>
+        <p class="body-md">Discover verified creators and businesses ready to collaborate.</p>
+      </div>
+      <button class="card-cta-btn cta-outline" style="white-space:nowrap">View all →</button>
+    </div>
+
+    <div class="profile-grid">
+      <!-- Model cards -->
+      <div class="p-card rv" onclick="openProfile('adeola')">
+        <div class="p-card-media" style="background:#0d2b18;padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Adeola Bello" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="p-card-verified"><div class="v-dot"></div> Verified</div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-name">Adeola Bello</div>
+          <div class="p-card-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+            London, UK
+          </div>
+          <div class="p-card-tags"><span class="p-tag">Food</span><span class="p-tag">Lifestyle</span></div>
+          <button class="p-card-btn">View Profile →</button>
+        </div>
+      </div>
+
+      <div class="p-card rv d1" onclick="openProfile('zara')">
+        <div class="p-card-media" style="background:#1a0f35;padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80" alt="Zara Okonkwo" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="p-card-verified"><div class="v-dot"></div> Verified</div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-name">Zara Okonkwo</div>
+          <div class="p-card-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+            London, UK
+          </div>
+          <div class="p-card-tags"><span class="p-tag">Promo</span><span class="p-tag">Reviews</span></div>
+          <button class="p-card-btn">View Profile →</button>
+        </div>
+      </div>
+
+      <div class="p-card rv d2" onclick="openProfile('bella')">
+        <div class="p-card-media biz" style="background:#2b1a08;padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Bella Eats" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="p-card-verified"><div class="v-dot"></div> Verified</div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-name">Bella Eats</div>
+          <div class="p-card-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+            Manchester, UK
+          </div>
+          <div class="p-card-tags"><span class="p-tag">Restaurant</span><span class="p-tag">Afro-Fusion</span></div>
+          <button class="p-card-btn">View Profile →</button>
+        </div>
+      </div>
+
+      <div class="p-card rv d3" onclick="openProfile('kwame')">
+        <div class="p-card-media" style="background:#0f1f35;padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80" alt="Kwame Asante" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="p-card-verified"><div class="v-dot"></div> Verified</div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-name">Kwame Asante</div>
+          <div class="p-card-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+            Berlin, Germany
+          </div>
+          <div class="p-card-tags"><span class="p-tag">Lifestyle</span><span class="p-tag">Reels</span></div>
+          <button class="p-card-btn">View Profile →</button>
+        </div>
+      </div>
+
+      <div class="p-card rv" onclick="openProfile('suya')">
+        <div class="p-card-media biz" style="background:#2b0d0d;padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Suya Spot London" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="p-card-verified"><div class="v-dot"></div> Verified</div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-name">Suya Spot London</div>
+          <div class="p-card-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+            London, UK
+          </div>
+          <div class="p-card-tags"><span class="p-tag">Takeaway</span><span class="p-tag">West African</span></div>
+          <button class="p-card-btn">View Profile →</button>
+        </div>
+      </div>
+
+      <div class="p-card rv d1" onclick="openProfile('imani')">
+        <div class="p-card-media" style="background:#1a2b0d;padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80" alt="Imani Fashola" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="p-card-verified"><div class="v-dot"></div> Verified</div>
+        </div>
+        <div class="p-card-body">
+          <div class="p-card-name">Imani Fashola</div>
+          <div class="p-card-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+            Manchester, UK
+          </div>
+          <div class="p-card-tags"><span class="p-tag">Aesthetics</span><span class="p-tag">Styling</span></div>
+          <button class="p-card-btn">View Profile →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TRUST ══════════════════ -->
+<section class="section trust-bg">
+  <div class="container">
+    <div class="sec-header center rv" style="color:white">
+      <span class="label" style="color:var(--green-lime)">Trust & Safety</span>
+      <h2 class="h-1" style="color:white;margin:8px 0 16px">Built for safe &amp;<br>verified collaboration.</h2>
+      <p style="color:rgba(255,255,255,0.55)">Every feature is designed to protect users, maintain quality, and ensure Creator Plug remains a platform you can trust globally.</p>
+    </div>
+
+    <div class="trust-grid rv">
+      <div class="trust-item">
+        <div class="trust-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-lime)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>AI Content Moderation</h3>
+        <p>Every image and video scanned before going live. Automatic NSFW detection — zero tolerance, flagged and human-reviewed before reaching any user.</p>
+        <div class="trust-status"><div class="v-dot" style="background:var(--green-lime)"></div> Active on all uploads</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-lime)" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Admin Approval System</h3>
+        <p>No profile goes live without manual admin review. Every sign-up and content update is approved before visibility — community quality guaranteed.</p>
+        <div class="trust-status"><div class="v-dot" style="background:var(--green-lime)"></div> 100% human reviewed</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-lime)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <h3>reCAPTCHA v3 Protection</h3>
+        <p>Google reCAPTCHA v3 runs invisibly on sign-up, login, uploads, and messages — blocking bots and spam automatically.</p>
+        <div class="trust-status"><div class="v-dot" style="background:var(--green-lime)"></div> Always-on bot protection</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-lime)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.15 9.81a19.79 19.79 0 01-3.07-8.6A2 2 0 012.07 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <h3>Secure Direct Contact</h3>
+        <p>Contact via verified WhatsApp, email, or phone only. No anonymous messages. Every contact pathway is transparent and traceable.</p>
+        <div class="trust-status"><div class="v-dot" style="background:var(--green-lime)"></div> Verified contact only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CAPABILITIES ══════════════════ -->
+<section class="section bg-surface">
+  <div class="container">
+    <div class="sec-header center rv">
+      <span class="label">Platform Features</span>
+      <h2 class="h-1">Everything you need<br>to collaborate at scale.</h2>
+      <p>A full suite of tools built for both creators and businesses — no external software needed.</p>
+    </div>
+
+    <div class="capabilities-grid">
+      <div class="cap-card rv">
+        <div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h3 class="h-3">File Upload System</h3>
+        <p class="body-sm">Upload images, videos, PDFs, menus, and PR packs. Everything appears on your public profile — beautifully presented.</p>
+      </div>
+      <div class="cap-card rv d1">
+        <div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg></div>
+        <h3 class="h-3">Portfolio Showcase</h3>
+        <p class="body-sm">Models upload up to 3 sample videos and a full photo gallery. Show your range and let your work speak for itself.</p>
+      </div>
+      <div class="cap-card rv d2">
+        <div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><path d="M3 2h18v8a9 9 0 01-9 9 9 9 0 01-9-9V2z"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></div>
+        <h3 class="h-3">Menu & PR Uploads</h3>
+        <p class="body-sm">Businesses upload menus and PR contact packs that creators can browse and download directly — zero friction.</p>
+      </div>
+      <div class="cap-card rv">
+        <div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3 class="h-3">Direct Contact</h3>
+        <p class="body-sm">Connect via WhatsApp, email, or phone. No middlemen. No waiting. Conversations happen at business speed.</p>
+      </div>
+      <div class="cap-card rv d1">
+        <div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3 class="h-3">Analytics Dashboard</h3>
+        <p class="body-sm">Track profile views, PR pack downloads, and search appearances. Know your reach and grow with data.</p>
+      </div>
+      <div class="cap-card rv d2">
+        <div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3 class="h-3">Global Directory</h3>
+        <p class="body-sm">Smart search by location, category, niche, cuisine, and verified status. Built for UK, US, Germany, and beyond from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FINAL CTA ══════════════════ -->
+<div class="final-cta" id="join">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-content">
+    <div class="rv">
+      <span class="label" style="color:var(--green-lime);display:block;margin-bottom:12px">Start today — it's free</span>
+      <h2>Start <span>Connecting</span><br>Today.</h2>
+      <p>Free to create your profile. Get discovered in minutes. Admin-verified, AI-protected, globally accessible.</p>
+      <div class="cta-pair">
+        <button class="cta-big primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Join as Model
+        </button>
+        <button class="cta-big secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Join as Business
+        </button>
+      </div>
+      <p class="cta-note">All profiles reviewed by admin · Protected by reCAPTCHA v3 · Zero NSFW tolerance</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">
+          <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+          Creator Plug
+        </div>
+        <p class="footer-desc">The global verified talent and business discovery platform. Built for creators. Built for brands. Built to scale.</p>
+        <div class="footer-badges">
+          <div class="fbadge"><div class="fbadge-dot"></div>GDPR</div>
+          <div class="fbadge"><div class="fbadge-dot"></div>AI Moderated</div>
+          <div class="fbadge"><div class="fbadge-dot"></div>Secure</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links">
+          <li><a href="#">Explore Models</a></li>
+          <li><a href="#">Explore Businesses</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Content Policy</a></li>
+          <li><a href="#">Safety Centre</a></li>
+          <li><a href="#">GDPR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Creator Plug. All rights reserved.</p>
+      <div class="socials">
+        <div class="soc-btn">📷</div>
+        <div class="soc-btn">🎵</div>
+        <div class="soc-btn">𝕏</div>
+        <div class="soc-btn">💬</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════ MOBILE NAV ══════════════════ -->
+<nav class="mob-nav" id="mobNav">
+  <div class="mob-nav-row">
+    <button class="mob-nav-item active" id="mnHome" onclick="mobNavClick('home',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M3 12L12 4l9 8"/><rect x="5" y="12" width="14" height="9" rx="1"/></svg>
+      <span>Home</span>
+    </button>
+    <button class="mob-nav-item" onclick="mobNavClick('directory',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+      <span>Search</span>
+    </button>
+    <div class="mob-nav-center" onclick="showScreen('signup')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+    </div>
+    <button class="mob-nav-item" onclick="mobNavClick('login',this)" style="position:relative">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span>Messages</span>
+      <div class="mob-nav-badge">3</div>
+    </button>
+    <button class="mob-nav-item" onclick="mobNavClick('login',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      <span>Profile</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════ PROFILE MODAL ══════════════════ -->
+<!-- ── PROFILE QUICK-VIEW MODAL (Image 2 style) ── -->
+<div id="profileModal" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.72);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center;padding:0" onclick="closeProfile(event)">
+  <div id="modalCard" style="background:var(--white);border-radius:28px 28px 0 0;max-width:520px;width:100%;overflow:hidden;box-shadow:0 -8px 60px rgba(0,0,0,0.4);animation:modalUp 0.35s cubic-bezier(0.34,1.56,0.64,1);max-height:92vh;display:flex;flex-direction:column" onclick="event.stopPropagation()">
+    <!-- Hero image — full width, like profile header -->
+    <div id="modalHero" style="position:relative;overflow:hidden;flex-shrink:0">
+      <!-- Blurred bg fill -->
+      <div id="modalBgBlur" style="position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(20px);transform:scale(1.1);opacity:0.5"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,14,10,0.3) 0%,rgba(10,14,10,0.85) 100%)"></div>
+      <!-- Avatar centered -->
+      <div style="position:relative;z-index:1;padding:28px 24px 20px;display:flex;align-items:flex-end;gap:16px">
+        <div style="position:relative;flex-shrink:0">
+          <img id="modalImg" src="" alt="" style="width:88px;height:88px;border-radius:50%;object-fit:cover;border:3.5px solid white;box-shadow:0 4px 20px rgba(0,0,0,0.4)">
+          <div id="modalVbadge" style="position:absolute;bottom:2px;right:2px;background:var(--green-bright);width:22px;height:22px;border-radius:50%;border:3px solid white;display:flex;align-items:center;justify-content:center"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+            <div id="modalName" style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:white;letter-spacing:-0.02em;line-height:1"></div>
+            <div id="modalType" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:var(--r-pill);background:rgba(255,255,255,0.18);color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.25);flex-shrink:0"></div>
+          </div>
+          <div id="modalHandle" style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:8px"></div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <span id="modalLoc" style="font-size:12px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:4px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg><span id="modalLocText"></span></span>
+          </div>
+        </div>
+        <button onclick="closeProfile()" style="flex-shrink:0;background:rgba(255,255,255,0.14);border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;align-self:flex-start;backdrop-filter:blur(4px)">×</button>
+      </div>
+      <!-- Stats bar inside hero -->
+      <div style="position:relative;z-index:1;display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.1);margin:0">
+        <div style="flex:1;padding:12px 0;text-align:center;border-right:1px solid rgba(255,255,255,0.1)"><div id="statFollowers" style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:white;line-height:1"></div><div style="font-size:10px;color:rgba(255,255,255,0.45);margin-top:3px;font-weight:500">Followers</div></div>
+        <div style="flex:1;padding:12px 0;text-align:center;border-right:1px solid rgba(255,255,255,0.1)"><div id="statCollabs" style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:white;line-height:1"></div><div style="font-size:10px;color:rgba(255,255,255,0.45);margin-top:3px;font-weight:500">Collabs</div></div>
+        <div style="flex:1;padding:12px 0;text-align:center"><div id="statRating" style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:white;line-height:1"></div><div style="font-size:10px;color:rgba(255,255,255,0.45);margin-top:3px;font-weight:500">Rating</div></div>
+      </div>
+    </div>
+    <!-- Body -->
+    <div style="padding:20px 22px 24px;overflow-y:auto;flex:1">
+      <div id="modalTags" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px"></div>
+      <div id="modalBio" style="font-size:14px;color:var(--body);line-height:1.68;margin-bottom:20px"></div>
+      <!-- Portfolio strip -->
+      <div id="modalPortfolio" style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:20px;border-radius:var(--r-md);overflow:hidden"></div>
+      <!-- Actions -->
+      <div style="display:grid;grid-template-columns:1fr auto;gap:10px">
+        <button onclick="closeProfile();showScreen('model-profile')" style="background:var(--green-bright);color:white;border:none;padding:14px;border-radius:var(--r-pill);font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='var(--green-mid)'" onmouseout="this.style.background='var(--green-bright)'">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Full Profile
+        </button>
+        <button style="background:var(--white);color:var(--ink);border:1.5px solid var(--border);padding:14px 16px;border-radius:var(--r-pill);font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;align-items:center;gap:6px" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--white)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+@keyframes modalUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:none}}
+@media(min-width:560px){
+  #profileModal{align-items:center!important;padding:20px!important}
+  #modalCard{border-radius:28px!important;animation:modalIn 0.3s ease!important}
+}
+</style>
+
+<script>
+// Reveal on scroll
+const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }), {threshold:0.08});
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+setTimeout(() => document.querySelectorAll('.hero .rv').forEach(el => el.classList.add('in')), 80);
+
+// Hero segment
+function setSeg(btn) {
+  document.querySelectorAll('.seg-opt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Search
+function doSearch() {
+  const loc = document.getElementById('searchLoc').value;
+  document.getElementById('explore').scrollIntoView({behavior:'smooth'});
+}
+
+// Profile data
+const profiles = {
+  adeola: {
+    name:'Adeola Bello', loc:'London, UK', type:'Creator',
+    img:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80',
+    tags:['Food','Lifestyle','Content Creator'],
+    bio:'Award-winning food content creator based in London. Specialises in vibrant food photography and recipe reels for restaurants and food brands. 3+ years collaborating with top UK restaurants.',
+    followers:'48.2K', collabs:'120+', rating:'4.9★',
+    portfolio:['https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=70','https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=70','https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=200&q=70']
+  },
+  zara: {
+    name:'Zara Okonkwo', loc:'London, UK', type:'Creator',
+    img:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80',
+    tags:['Promo','Reviews','Reels'],
+    bio:'Content creator and brand strategist specialising in restaurant promos and honest food reviews. Known for high-engagement reels and authentic storytelling that drives footfall.',
+    followers:'92.1K', collabs:'85+', rating:'5.0★',
+    portfolio:['https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=70','https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&q=70','https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=70']
+  },
+  bella: {
+    name:'Bella Eats', loc:'Manchester, UK', type:'Business',
+    img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80',
+    tags:['Restaurant','Afro-Fusion','Fine Dining'],
+    bio:'Upscale Afro-Fusion dining experience in Manchester city centre. Open for collaborations with verified food creators. PR pack available for download. Seating for 80+.',
+    followers:'12.4K', collabs:'34', rating:'4.8★',
+    portfolio:['https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=70','https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=70','https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=200&q=70']
+  },
+  kwame: {
+    name:'Kwame Asante', loc:'Berlin, Germany', type:'Creator',
+    img:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80',
+    tags:['Lifestyle','Reels','Brand Deals'],
+    bio:'Berlin-based lifestyle creator known for cinematic reels and brand storytelling. Partners with restaurants, fashion, and wellness brands. Available for campaigns across Europe.',
+    followers:'156K', collabs:'200+', rating:'4.9★',
+    portfolio:['https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=70','https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&q=70','https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=70']
+  },
+  suya: {
+    name:'Suya Spot London', loc:'London, UK', type:'Business',
+    img:'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80',
+    tags:['Takeaway','West African','Street Food'],
+    bio:'London\'s premier West African street food destination. Seeking food creators for authentic collaborations. We offer complimentary tasting sessions and full PR packs on request.',
+    followers:'8.6K', collabs:'18', rating:'4.7★',
+    portfolio:['https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=70','https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=200&q=70','https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=70']
+  },
+  imani: {
+    name:'Imani Fashola', loc:'Manchester, UK', type:'Creator',
+    img:'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&q=80',
+    tags:['Aesthetics','Styling','Beauty'],
+    bio:'Manchester-based aesthetics and styling creator with a flair for editorial food and lifestyle photography. Trusted by brands for her clean, aspirational visual identity.',
+    followers:'67.3K', collabs:'95+', rating:'5.0★',
+    portfolio:['https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=70','https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=70','https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=70']
+  }
+};
+
+function openProfile(id) {
+  const p = profiles[id];
+  if(!p) return;
+  // Hero bg blur
+  const bgBlur = document.getElementById('modalBgBlur');
+  if(bgBlur) bgBlur.style.backgroundImage = `url(${p.img})`;
+  // Avatar
+  const img = document.getElementById('modalImg');
+  img.src = p.img; img.alt = p.name;
+  // Text
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalLocText').textContent = p.loc;
+  document.getElementById('modalType').textContent = p.type;
+  // Handle from name
+  const handle = document.getElementById('modalHandle');
+  if(handle) handle.textContent = '@' + p.name.split(' ')[0].toLowerCase() + p.name.split(' ')[1]?.toLowerCase();
+  // Stats
+  document.getElementById('statFollowers').textContent = p.followers;
+  document.getElementById('statCollabs').textContent = p.collabs;
+  document.getElementById('statRating').textContent = p.rating;
+  // Tags
+  const tagsEl = document.getElementById('modalTags');
+  tagsEl.innerHTML = p.tags.map(t => `<span style="font-size:11px;font-weight:600;padding:4px 11px;border-radius:100px;background:var(--green-light);color:var(--green);border:1px solid rgba(45,192,110,0.2)">${t}</span>`).join('');
+  // Bio
+  document.getElementById('modalBio').textContent = p.bio;
+  // Portfolio strip
+  const porto = document.getElementById('modalPortfolio');
+  if(porto && p.portfolio) {
+    porto.innerHTML = p.portfolio.map(u => `<div style="aspect-ratio:1;overflow:hidden"><img src="${u}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"></div>`).join('');
+  } else if(porto) { porto.style.display='none'; }
+  // Show
+  const modal = document.getElementById('profileModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProfile(e) {
+  if(!e || e.target === document.getElementById('profileModal')) {
+    document.getElementById('profileModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeProfile({target:document.getElementById('profileModal')}); });
+</script>
+
+<!-- ████████████████████████████████████████████
+     NEW SCREENS: Directory · Model Profile
+     Business Profile · Dashboards · Auth
+     ████████████████████████████████████████████ -->
+<style>
+/* Screen system */
+.screen{display:none;min-height:100vh;padding-top:68px;background:var(--white)}
+.screen.active{display:block}
+@media(max-width:640px){.screen{padding-top:60px}}
+
+/* Page header */
+.pg-header{background:var(--ink);padding:44px 0 36px}
+.pg-header-inner{max-width:1240px;margin:0 auto;padding:0 24px}
+.pg-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);border:none;background:none;cursor:pointer;padding:0;margin-bottom:14px;transition:color 0.2s}
+.pg-back:hover{color:white}
+.pg-back svg{width:15px;height:15px}
+.pg-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(22px,4vw,38px);font-weight:800;letter-spacing:-0.025em;color:white;margin-bottom:6px}
+.pg-sub{font-size:15px;color:rgba(255,255,255,0.5)}
+
+/* ── DIRECTORY ── */
+.dir-filter-bar{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:68px;z-index:100;padding:12px 0}
+@media(max-width:640px){.dir-filter-bar{top:60px}}
+.dir-filter-inner{max-width:1240px;margin:0 auto;padding:0 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dir-search-box{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;border:1.5px solid var(--border);border-radius:var(--r-pill);padding:9px 16px;background:var(--surface);transition:border-color 0.2s}
+.dir-search-box:focus-within{border-color:var(--green-bright);background:white}
+.dir-search-box input{border:none;background:none;outline:none;font-size:14px;width:100%;color:var(--ink)}
+.dir-search-box input::placeholder{color:var(--muted)}
+.dir-fsel{border:1.5px solid var(--border);border-radius:var(--r-pill);padding:9px 32px 9px 14px;font-size:13px;font-weight:600;color:var(--body);background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%236B7A6B' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;-webkit-appearance:none;appearance:none;cursor:pointer;outline:none;transition:border-color 0.2s}
+.dir-fsel:focus{border-color:var(--green-bright)}
+.dir-type-tabs{display:flex;background:var(--surface);border-radius:var(--r-pill);padding:3px;gap:3px}
+.dir-tab{font-size:13px;font-weight:600;padding:7px 15px;border-radius:var(--r-pill);border:none;cursor:pointer;color:var(--muted);background:none;transition:all 0.2s;white-space:nowrap}
+.dir-tab.active{background:var(--white);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+
+.dir-body{max-width:1240px;margin:0 auto;padding:28px 24px 80px;display:grid;grid-template-columns:220px 1fr;gap:28px}
+@media(max-width:900px){.dir-body{grid-template-columns:1fr}}
+.dir-sidebar{display:flex;flex-direction:column;gap:16px}
+@media(max-width:900px){.dir-sidebar{display:none}}
+.dir-sb-card{background:var(--surface);border-radius:var(--r-lg);padding:18px;border:1px solid var(--border)}
+.dir-sb-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);margin-bottom:12px}
+.dir-fopt{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--body);cursor:pointer;padding:3px 0}
+.dir-fopt input[type=checkbox]{width:15px;height:15px;accent-color:var(--green-bright);cursor:pointer}
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+@media(max-width:640px){.dir-grid{grid-template-columns:1fr 1fr;gap:10px}}
+.dir-results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.dir-count{font-size:13px;color:var(--muted);font-weight:500}
+.dir-sort select{border:none;background:none;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;outline:none}
+
+/* ── MODEL PUBLIC PROFILE ── */
+.prof-hero{background:var(--ink);position:relative;overflow:hidden}
+.prof-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.16}
+.prof-hero-inner{max-width:1240px;margin:0 auto;padding:28px 24px 0;position:relative;z-index:1}
+.prof-avatar-wrap{position:relative;display:inline-block;flex-shrink:0}
+.prof-avatar{width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid white;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+@media(max-width:640px){.prof-avatar{width:76px;height:76px}}
+.prof-vbadge{position:absolute;bottom:3px;right:3px;background:var(--green-bright);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border:3px solid var(--ink)}
+.prof-vbadge svg{width:10px;height:10px}
+.prof-name{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:3px}
+@media(max-width:640px){.prof-name{font-size:20px}}
+.prof-handle{font-size:13px;color:rgba(255,255,255,0.42);margin-bottom:12px}
+.prof-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.prof-meta-item{display:flex;align-items:center;gap:5px;font-size:13px;color:rgba(255,255,255,0.58)}
+.prof-meta-item svg{width:12px;height:12px}
+.prof-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.prof-tag{font-size:11px;font-weight:600;padding:4px 12px;border-radius:var(--r-pill);background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.16)}
+.prof-actions{display:flex;gap:9px;flex-wrap:wrap;padding-bottom:28px}
+.btn-cta{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;padding:11px 22px;border-radius:var(--r-pill);border:none;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.btn-cta.wa{background:#25D366;color:white}
+.btn-cta.wa:hover{background:#1ebe59;transform:translateY(-1px)}
+.btn-cta.em{background:rgba(255,255,255,0.12);color:white;border:1.5px solid rgba(255,255,255,0.24)}
+.btn-cta.em:hover{background:rgba(255,255,255,0.2)}
+.btn-cta.sv{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.65);border:1.5px solid rgba(255,255,255,0.14)}
+
+.prof-stats-bar{background:rgba(255,255,255,0.05);border-top:1px solid rgba(255,255,255,0.07)}
+.prof-stats-inner{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;gap:0}
+.prof-stat{padding:16px 28px 16px 0;margin-right:28px;border-right:1px solid rgba(255,255,255,0.07)}
+.prof-stat:last-child{border-right:none}
+.prof-stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:white;line-height:1}
+.prof-stat-l{font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px;font-weight:500}
+
+.prof-body{max-width:1240px;margin:0 auto;padding:36px 24px 80px;display:grid;grid-template-columns:1fr 320px;gap:36px}
+@media(max-width:900px){.prof-body{grid-template-columns:1fr}}
+.prof-section{margin-bottom:36px}
+.prof-sec-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px}
+.prof-sec-title svg{width:15px;height:15px;color:var(--green)}
+.prof-bio{font-size:15px;color:var(--body);line-height:1.72}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+@media(max-width:640px){.media-grid{grid-template-columns:repeat(2,1fr)}}
+.media-thumb{aspect-ratio:1;border-radius:var(--r-md);overflow:hidden;position:relative;cursor:pointer;background:var(--surface)}
+.media-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.media-thumb:hover img{transform:scale(1.05)}
+.media-thumb-vid::after{content:'▶';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.32);font-size:18px;color:white}
+
+.contact-card{background:var(--surface);border-radius:var(--r-xl);padding:22px;border:1px solid var(--border);margin-bottom:14px}
+.contact-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px}
+.c-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)}
+.c-row:last-child{border-bottom:none}
+.c-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon.wa{background:#e8f8f0;color:#25D366}
+.c-icon.em{background:#e8efff;color:#3b5bdb}
+.c-icon.ph{background:#fff4e5;color:#e67700}
+.c-lbl{flex:1}
+.c-lbl-t{font-size:13px;font-weight:600;color:var(--ink)}
+.c-lbl-v{font-size:11px;color:var(--muted);margin-top:1px}
+.c-go{font-size:11px;font-weight:700;color:var(--green);background:var(--green-light);padding:4px 10px;border-radius:var(--r-pill);border:none;cursor:pointer;white-space:nowrap}
+
+/* ── BUSINESS PROFILE ── */
+.biz-cover{height:230px;position:relative;overflow:hidden;background:var(--ink)}
+@media(max-width:640px){.biz-cover{height:170px}}
+.biz-cover img{width:100%;height:100%;object-fit:cover;opacity:0.82}
+.biz-cover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,0.6)100%)}
+.biz-header{max-width:1240px;margin:-48px auto 0;padding:0 24px;position:relative;z-index:2;display:flex;align-items:flex-end;gap:18px}
+.biz-logo-img{width:90px;height:90px;border-radius:var(--r-lg);object-fit:cover;border:4px solid white;box-shadow:0 4px 16px rgba(0,0,0,0.18);flex-shrink:0;background:var(--surface)}
+@media(max-width:640px){.biz-logo-img{width:68px;height:68px}}
+.biz-header-info{padding-bottom:14px}
+.biz-name{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:5px}
+.biz-cats{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.biz-cat-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-pill);background:var(--green-light);color:var(--green)}
+.biz-body{max-width:1240px;margin:0 auto;padding:24px 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:28px}
+@media(max-width:900px){.biz-body{grid-template-columns:1fr}}
+
+.menu-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--border);border-radius:var(--r-md);background:white;transition:box-shadow 0.2s;margin-bottom:10px}
+.menu-item:hover{box-shadow:0 4px 14px rgba(0,0,0,0.06)}
+.menu-item img{width:58px;height:58px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;background:var(--surface)}
+.menu-item-info{flex:1}
+.menu-item-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.menu-item-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.menu-item-price{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800;color:var(--green);white-space:nowrap}
+
+.pr-file{display:flex;align-items:center;gap:11px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);cursor:pointer;transition:all 0.2s;background:white;margin-bottom:8px}
+.pr-file:hover{border-color:var(--green-bright);background:var(--green-light)}
+.pr-file-icon{width:38px;height:38px;border-radius:var(--r-sm);background:var(--green-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pr-file-icon svg{width:18px;height:18px;color:var(--green)}
+.pr-file-info{flex:1}
+.pr-file-name{font-size:13px;font-weight:700;color:var(--ink)}
+.pr-file-size{font-size:11px;color:var(--muted);margin-top:1px}
+.pr-dl{font-size:11px;font-weight:700;color:var(--green);background:var(--green-light);padding:4px 10px;border-radius:var(--r-pill)}
+
+/* ── DASHBOARDS ── */
+.dash-layout{display:grid;grid-template-columns:232px 1fr;min-height:calc(100vh - 68px)}
+@media(max-width:900px){.dash-layout{grid-template-columns:1fr}}
+.dash-sidebar{background:var(--ink-2);padding:20px 0;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;display:flex;flex-direction:column}
+@media(max-width:900px){.dash-sidebar{display:none}}
+.dash-logo-row{padding:0 18px 20px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:14px;display:flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800;color:white}
+.dash-nav-sec{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.22);padding:12px 18px 5px}
+.dash-nav-item{display:flex;align-items:center;gap:9px;padding:10px 18px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.52);cursor:pointer;transition:all 0.15s;border-left:3px solid transparent;margin-bottom:1px}
+.dash-nav-item:hover{color:white;background:rgba(255,255,255,0.05)}
+.dash-nav-item.active{color:white;background:rgba(45,192,110,0.1);border-left-color:var(--green-bright)}
+.dash-nav-item svg{width:15px;height:15px;flex-shrink:0}
+.dash-nav-badge{margin-left:auto;background:var(--green-bright);color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:var(--r-pill)}
+.dash-user-row{padding:16px 18px;border-top:1px solid rgba(255,255,255,0.07);margin-top:auto;display:flex;align-items:center;gap:9px;cursor:pointer}
+.dash-user-avatar{width:34px;height:34px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.dash-user-name{font-size:13px;font-weight:600;color:white}
+.dash-user-role{font-size:11px;color:rgba(255,255,255,0.38);margin-top:1px}
+
+.dash-main{background:var(--surface);padding:28px 28px 60px;overflow-y:auto}
+@media(max-width:640px){.dash-main{padding:18px 16px 40px}}
+.dash-topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.dash-title{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+.dash-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.dash-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+@media(max-width:900px){.dash-stats-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.dash-stats-row{grid-template-columns:1fr 1fr}}
+.dash-stat-card{background:white;border-radius:var(--r-lg);padding:18px;border:1px solid var(--border)}
+.dash-stat-icon{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.dash-stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em}
+.dash-stat-l{font-size:12px;color:var(--muted);margin-top:4px;font-weight:500}
+.dash-stat-delta{font-size:11px;font-weight:600;margin-top:5px;display:inline-flex;align-items:center;gap:2px}
+.dash-stat-delta.up{color:#16a34a}
+
+.dash-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:768px){.dash-grid-2{grid-template-columns:1fr}}
+.dash-card{background:white;border-radius:var(--r-xl);padding:22px;border:1px solid var(--border);margin-bottom:16px}
+.dash-card-title{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.dash-card-title button{font-size:12px;font-weight:600;color:var(--green);background:none;border:none;cursor:pointer}
+
+.act-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-soft)}
+.act-item:last-child{border-bottom:none}
+.act-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.act-text{font-size:13px;color:var(--body);flex:1;line-height:1.4}
+.act-time{font-size:11px;color:var(--muted);white-space:nowrap}
+
+.msg-list{display:flex;flex-direction:column}
+.msg-item{display:flex;align-items:center;gap:11px;padding:12px;border-bottom:1px solid var(--border-soft);cursor:pointer;transition:background 0.15s}
+.msg-item:hover{background:var(--surface)}
+.msg-item.unread{background:#f0fbf5}
+.msg-item.unread:hover{background:#e4f7ec}
+.msg-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--surface)}
+.msg-info{flex:1;min-width:0}
+.msg-name{font-size:13px;font-weight:700;color:var(--ink)}
+.msg-preview{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.msg-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.msg-time{font-size:11px;color:var(--muted)}
+.msg-badge{background:var(--green-bright);color:white;font-size:10px;font-weight:700;padding:2px 6px;border-radius:var(--r-pill)}
+
+.view-prof-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--green);border:1.5px solid var(--green-bright);padding:7px 14px;border-radius:var(--r-pill);background:none;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.view-prof-btn:hover{background:var(--green-light)}
+
+.upload-zone{border:2px dashed var(--border);border-radius:var(--r-lg);padding:28px 20px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--surface)}
+.upload-zone:hover{border-color:var(--green-bright);background:var(--green-light)}
+.upload-zone svg{width:28px;height:28px;color:var(--muted);margin:0 auto 9px}
+.upload-zone p{font-size:13px;color:var(--muted)}
+.upload-zone strong{font-weight:700;color:var(--ink)}
+
+.form-row{margin-bottom:16px}
+.form-label{font-size:11px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;display:block}
+.form-input{width:100%;border:1.5px solid var(--border);border-radius:var(--r-md);padding:11px 14px;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s;background:white;font-family:'DM Sans',sans-serif}
+.form-input:focus{border-color:var(--green-bright)}
+.form-input::placeholder{color:var(--muted)}
+textarea.form-input{resize:vertical;min-height:96px;line-height:1.6}
+.form-sel{appearance:none;-webkit-appearance:none;background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%236B7A6B' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.form-2col{grid-template-columns:1fr}}
+.btn-primary{background:var(--green-bright);color:white;border:none;padding:11px 26px;border-radius:var(--r-pill);font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-1px)}
+.btn-secondary{background:white;color:var(--ink);border:1.5px solid var(--border);padding:10px 22px;border-radius:var(--r-pill);font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.btn-secondary:hover{background:var(--surface);border-color:var(--green-mid)}
+
+.media-upload-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}
+@media(max-width:640px){.media-upload-grid{grid-template-columns:repeat(3,1fr)}}
+.media-up-thumb{aspect-ratio:1;border-radius:var(--r-md);overflow:hidden;position:relative;background:var(--surface)}
+.media-up-thumb img{width:100%;height:100%;object-fit:cover}
+.media-up-thumb .del-btn{position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.5);color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.media-add{aspect-ratio:1;border:2px dashed var(--border);border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:4px;background:var(--surface);transition:all 0.2s}
+.media-add:hover{border-color:var(--green-bright);background:var(--green-light)}
+.media-add svg{width:20px;height:20px;color:var(--muted)}
+.media-add span{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em}
+
+/* ── AUTH ── */
+.auth-wrap{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:28px 20px;background:var(--surface)}
+.auth-card{background:white;border-radius:var(--r-xl);padding:36px;max-width:420px;width:100%;box-shadow:0 8px 36px rgba(0,0,0,0.07);border:1px solid var(--border)}
+@media(max-width:480px){.auth-card{padding:26px 20px}}
+.auth-logo{display:flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:var(--ink);margin-bottom:24px}
+.auth-title{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:5px}
+.auth-sub{font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.auth-type-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border-radius:var(--r-md);padding:4px;gap:4px;margin-bottom:22px}
+.auth-type-btn{padding:11px 8px;border-radius:var(--r-sm);border:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted);background:none;transition:all 0.2s;text-align:center;line-height:1.4}
+.auth-type-btn.active{background:white;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+.auth-divider{display:flex;align-items:center;gap:10px;margin:18px 0;color:var(--muted);font-size:12px;font-weight:600}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-social-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;padding:11px;border:1.5px solid var(--border);border-radius:var(--r-md);background:white;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;transition:all 0.2s;margin-bottom:9px;font-family:'DM Sans',sans-serif}
+.auth-social-btn:hover{background:var(--surface);border-color:var(--green-mid)}
+.auth-switch{text-align:center;font-size:13px;color:var(--muted);margin-top:18px}
+.auth-switch a{color:var(--green);font-weight:700;cursor:pointer}
+.auth-switch a:hover{text-decoration:underline}
+
+/* ─── MOBILE AUTH BACKGROUND ─── */
+@media(max-width:700px){
+  .auth-screen-wrap{position:relative;min-height:100vh;}
+  .auth-mobile-fullbg{
+    display:block!important;
+    position:fixed;inset:0;z-index:0;
+    background-size:cover;background-position:center top;
+    filter:brightness(0.55);
+  }
+  .auth-form-sheet{
+    position:relative;z-index:1;
+    background:rgba(255,255,255,0.95)!important;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-radius:24px 24px 0 0;
+    min-height:calc(100vh - 72px);
+    margin-top:72px;
+    padding:28px 24px 100px!important;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.35);
+    display:flex;align-items:flex-start;justify-content:center;
+    overflow-y:auto;
+  }
+  .auth-form-sheet > div{
+    max-width:360px;width:100%;
+  }
+  .auth-mobile-logo-top{
+    display:flex!important;
+    position:fixed;top:0;left:0;right:0;z-index:2;
+    padding:14px 20px;align-items:center;gap:8px;
+    background:rgba(0,0,0,0.18);backdrop-filter:blur(6px);
+  }
+}
+@media(min-width:701px){
+  .auth-mobile-fullbg{display:none!important;}
+  .auth-mobile-logo-top{display:none!important;}
+  .auth-form-sheet{
+    background:white!important;
+    display:flex;align-items:center;justify-content:center;
+    padding:40px 36px!important;overflow-y:auto;
+  }
+}
+</style>
+
+<!-- ══ SCREEN: DIRECTORY ══ -->
+<div id="screen-directory" class="screen">
+  <div class="pg-header">
+    <div class="pg-header-inner">
+      <button class="pg-back" onclick="showScreen('home')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to home
+      </button>
+      <div class="pg-title">Creator & Business Directory</div>
+      <div class="pg-sub">Discover verified creators and businesses ready to collaborate</div>
+    </div>
+  </div>
+  <div class="dir-filter-bar">
+    <div class="dir-filter-inner">
+      <div class="dir-type-tabs">
+        <button class="dir-tab active" onclick="setDirTab(this,'all')">All</button>
+        <button class="dir-tab" onclick="setDirTab(this,'model')">Models</button>
+        <button class="dir-tab" onclick="setDirTab(this,'business')">Businesses</button>
+      </div>
+      <div class="dir-search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+        <input type="text" placeholder="Search name, niche, city…" oninput="filterDir(this.value)">
+      </div>
+      <select class="dir-fsel">
+        <option value="">Any location</option>
+        <option>London, UK</option><option>Manchester, UK</option>
+        <option>Berlin, Germany</option><option>New York, US</option>
+        <option>Los Angeles, US</option>
+      </select>
+      <select class="dir-fsel">
+        <option value="">Any niche</option>
+        <option>Food Content</option><option>Lifestyle</option>
+        <option>Beauty</option><option>Fitness</option>
+        <option>Restaurant</option><option>Café</option><option>West African</option>
+      </select>
+    </div>
+  </div>
+  <div class="dir-body">
+    <aside class="dir-sidebar">
+      <div class="dir-sb-card">
+        <div class="dir-sb-title">Verified Status</div>
+        <label class="dir-fopt"><input type="checkbox" checked> Verified only</label>
+        <label class="dir-fopt"><input type="checkbox"> All profiles</label>
+      </div>
+      <div class="dir-sb-card">
+        <div class="dir-sb-title">Niche / Cuisine</div>
+        <label class="dir-fopt"><input type="checkbox"> Food Content</label>
+        <label class="dir-fopt"><input type="checkbox"> Lifestyle</label>
+        <label class="dir-fopt"><input type="checkbox"> Beauty & Style</label>
+        <label class="dir-fopt"><input type="checkbox"> Restaurant</label>
+        <label class="dir-fopt"><input type="checkbox"> Café / Takeaway</label>
+        <label class="dir-fopt"><input type="checkbox"> West African</label>
+        <label class="dir-fopt"><input type="checkbox"> Asian Cuisine</label>
+      </div>
+      <div class="dir-sb-card">
+        <div class="dir-sb-title">Location</div>
+        <label class="dir-fopt"><input type="checkbox"> London, UK</label>
+        <label class="dir-fopt"><input type="checkbox"> Manchester, UK</label>
+        <label class="dir-fopt"><input type="checkbox"> Berlin, Germany</label>
+        <label class="dir-fopt"><input type="checkbox"> New York, US</label>
+        <label class="dir-fopt"><input type="checkbox"> Los Angeles, US</label>
+      </div>
+    </aside>
+    <div>
+      <div class="dir-results-bar">
+        <div class="dir-count" id="dirCount">Showing <strong>12</strong> profiles</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)">Sort: <select style="border:none;background:none;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;outline:none"><option>Most relevant</option><option>Newest</option><option>Most followers</option><option>Top rated</option></select></div>
+      </div>
+      <div class="dir-grid" id="dirGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: MODEL PUBLIC PROFILE ══ -->
+<div id="screen-model-profile" class="screen">
+  <div class="prof-hero">
+    <div class="prof-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=80')"></div>
+    <div class="prof-hero-inner">
+      <button class="pg-back" onclick="showScreen('directory')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to directory
+      </button>
+      <div style="display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap">
+        <div class="prof-avatar-wrap">
+          <img class="prof-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80" alt="Adeola Bello">
+          <div class="prof-vbadge"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+        </div>
+        <div class="prof-info" style="flex:1">
+          <div class="prof-name">Adeola Bello</div>
+          <div class="prof-handle">@adeolacreates · Food & Lifestyle Creator</div>
+          <div class="prof-meta">
+            <span class="prof-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>London, UK</span>
+            <span class="prof-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M2 12h20M12 2a15 15 0 010 20"/></svg>adeolacreates.com</span>
+          </div>
+          <div class="prof-tags">
+            <span class="prof-tag">Food Content</span><span class="prof-tag">Lifestyle</span>
+            <span class="prof-tag">Recipe Reels</span><span class="prof-tag">Brand Deals</span>
+          </div>
+          <div class="prof-actions">
+            <button class="btn-cta wa"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</button>
+            <button class="btn-cta em"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</button>
+            <button class="btn-cta sv"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prof-stats-bar">
+      <div class="prof-stats-inner">
+        <div class="prof-stat"><div class="prof-stat-n">48.2K</div><div class="prof-stat-l">Followers</div></div>
+        <div class="prof-stat"><div class="prof-stat-n">120+</div><div class="prof-stat-l">Collabs</div></div>
+        <div class="prof-stat"><div class="prof-stat-n">4.9★</div><div class="prof-stat-l">Rating</div></div>
+        <div class="prof-stat"><div class="prof-stat-n">3 yrs</div><div class="prof-stat-l">Experience</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="prof-body">
+    <div>
+      <div class="prof-section">
+        <div class="prof-sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</div>
+        <p class="prof-bio">Award-winning food content creator based in London. I specialise in vibrant food photography and recipe reels for restaurants and food brands. With over 3 years of experience collaborating with top UK restaurants, I bring authentic storytelling and high-engagement content that converts followers into customers.<br><br>Available for: Tasting events, restaurant walkthroughs, product launches, menu reveals, and brand ambassador roles.</p>
+      </div>
+      <div class="prof-section">
+        <div class="prof-sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18M3 15h18"/></svg>Portfolio</div>
+        <div class="media-grid">
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" alt=""></div>
+          <div class="media-thumb media-thumb-vid"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80" alt=""></div>
+          <div class="media-thumb media-thumb-vid"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80" alt=""></div>
+        </div>
+      </div>
+      <div class="prof-section">
+        <div class="prof-sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>Social Platforms</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--surface);border-radius:var(--r-md);border:1px solid var(--border)">
+            <div style="width:30px;height:30px;background:#E1306C;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="white" stroke-width="1.5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"/></svg></div>
+            <div style="flex:1"><div style="font-size:13px;font-weight:700;color:var(--ink)">Instagram</div><div style="font-size:12px;color:var(--muted)"><span class="ig-handle">@adeolacreates · 48.2K followers</span></div></div>
+            <a href="#" style="font-size:12px;font-weight:600;color:var(--green)">View →</a>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--surface);border-radius:var(--r-md);border:1px solid var(--border)">
+            <div style="width:30px;height:30px;background:#000;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg></div>
+            <div style="flex:1"><div style="font-size:13px;font-weight:700;color:var(--ink)">TikTok</div><div style="font-size:12px;color:var(--muted)"><span class="tt-handle">@adeolacreates · 31.8K followers</span></div></div>
+            <a href="#" style="font-size:12px;font-weight:600;color:var(--green)">View →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-card">
+        <h4>Contact Adeola</h4>
+        <div class="c-row"><div class="c-icon wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div class="c-lbl"><div class="c-lbl-t">WhatsApp</div><div class="c-lbl-v">+44 7700 900123</div></div><button class="c-go">Open →</button></div>
+        <div class="c-row"><div class="c-icon em"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="c-lbl"><div class="c-lbl-t">Email</div><div class="c-lbl-v">hello@adeolacreates.com</div></div><button class="c-go">Send →</button></div>
+      </div>
+      <div class="contact-card">
+        <h4>Availability</h4>
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--green-light);border-radius:var(--r-md);border:1px solid rgba(45,192,110,0.2);margin-bottom:10px">
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--green-bright)"></div>
+          <span style="font-size:13px;font-weight:600;color:var(--green)">Available for collaborations</span>
+        </div>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6">Next available: This week · Response time: under 4 hours</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: BUSINESS PUBLIC PROFILE ══ -->
+<div id="screen-biz-profile" class="screen">
+  <div class="biz-cover">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80" alt="Bella Eats">
+    <div class="biz-cover-overlay"></div>
+    <button onclick="showScreen('directory')" style="position:absolute;top:18px;left:22px;z-index:2;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:white;background:rgba(0,0,0,0.32);border:none;padding:7px 13px;border-radius:var(--r-pill);cursor:pointer;backdrop-filter:blur(4px)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back
+    </button>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:0 24px">
+    <div class="biz-header">
+      <img class="biz-logo-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80" alt="Bella Eats">
+      <div class="biz-header-info">
+        <div class="biz-name">Bella Eats</div>
+        <div class="biz-cats">
+          <span class="biz-cat-tag">Restaurant</span>
+          <span class="biz-cat-tag">Afro-Fusion</span>
+          <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>Manchester, UK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="prof-section">
+        <div class="prof-sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>About</div>
+        <p class="prof-bio">Upscale Afro-Fusion dining in the heart of Manchester. We combine the bold flavours of West Africa with modern European culinary techniques to create an experience like no other.<br><br>We are actively seeking verified food creators and lifestyle influencers for collaboration. Complimentary tasting sessions available for verified Creator Plug members.</p>
+      </div>
+      <div class="prof-section">
+        <div class="prof-sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 2h18v8a9 9 0 01-9 9 9 9 0 01-9-9V2z"/></svg>Menu Highlights</div>
+        <div class="menu-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=80" alt=""><div class="menu-item-info"><div class="menu-item-name">Jollof Risotto</div><div class="menu-item-desc">Signature smoked jollof-inspired risotto with grilled king prawn</div></div><div class="menu-item-price">£22</div></div>
+        <div class="menu-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&q=80" alt=""><div class="menu-item-info"><div class="menu-item-name">Puff Puff Platter</div><div class="menu-item-desc">Street-style puff puff with three dipping sauces</div></div><div class="menu-item-price">£9</div></div>
+        <div class="menu-item"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=200&q=80" alt=""><div class="menu-item-info"><div class="menu-item-name">Suya Lamb Chops</div><div class="menu-item-desc">Chargrilled lamb chops with suya spice blend and chimichurri</div></div><div class="menu-item-price">£28</div></div>
+      </div>
+      <div class="prof-section">
+        <div class="prof-sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Photo Gallery</div>
+        <div class="media-grid">
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80" alt=""></div>
+          <div class="media-thumb"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-card">
+        <h4>Contact & Book</h4>
+        <div class="c-row"><div class="c-icon wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div class="c-lbl"><div class="c-lbl-t">WhatsApp</div><div class="c-lbl-v">+44 161 900 4567</div></div><button class="c-go">Open →</button></div>
+        <div class="c-row"><div class="c-icon em"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="c-lbl"><div class="c-lbl-t">Email</div><div class="c-lbl-v">collabs@bellaeats.co.uk</div></div><button class="c-go">Send →</button></div>
+        <div class="c-row"><div class="c-icon ph"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.15 9.81a19.79 19.79 0 01-3.07-8.6A2 2 0 012.07 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="c-lbl"><div class="c-lbl-t">Phone</div><div class="c-lbl-v">+44 161 900 4568</div></div><button class="c-go">Call →</button></div>
+      </div>
+      <div class="contact-card">
+        <h4>PR Downloads</h4>
+        <div class="pr-file"><div class="pr-file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="pr-file-info"><div class="pr-file-name">Bella Eats — Press Kit 2025.pdf</div><div class="pr-file-size">2.4 MB · PDF</div></div><span class="pr-dl">↓ Download</span></div>
+        <div class="pr-file"><div class="pr-file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="pr-file-info"><div class="pr-file-name">Full Menu — Spring 2025.pdf</div><div class="pr-file-size">1.1 MB · PDF</div></div><span class="pr-dl">↓ Download</span></div>
+        <div class="pr-file"><div class="pr-file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div><div class="pr-file-info"><div class="pr-file-name">Brand Guidelines & Logos.zip</div><div class="pr-file-size">8.7 MB · ZIP</div></div><span class="pr-dl">↓ Download</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: MODEL DASHBOARD ══ -->
+<div id="screen-model-dashboard" class="screen">
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <div class="dash-logo-row"><div class="logo-mark" style="width:26px;height:26px;min-width:26px;border-radius:7px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>Creator Plug</div>
+      <div class="dash-nav-sec">Main</div>
+      <div class="dash-nav-item active" onclick="setDTab(this,'md-overview')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Overview</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'md-profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Edit Profile</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'md-media')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Media & Portfolio</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'md-browse')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>Browse Businesses</div>
+      <div class="dash-nav-sec">Analytics</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'md-analytics')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics</div>
+      <div class="dash-user-row" onclick="showScreen('model-profile')">
+        <img class="dash-user-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80" alt="">
+        <div><div class="dash-user-name">Adeola Bello</div><div class="dash-user-role">Food Creator · Verified ✓</div></div>
+      </div>
+    </aside>
+    <div class="dash-main">
+      <!-- Overview -->
+      <div id="md-overview" class="dash-tab">
+        <div class="dash-topbar"><div><div class="dash-title">Good morning, Adeola 👋</div><div class="dash-sub">Here's what's happening with your profile today</div></div><button class="view-prof-btn" onclick="showScreen('model-profile')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View my profile</button></div>
+        <div class="dash-stats-row">
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#e8f5ee"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="dash-stat-n">1,248</div><div class="dash-stat-l">Profile views</div><div class="dash-stat-delta up">↑ 18% this week</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#fef3c7"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="dash-stat-n">24</div><div class="dash-stat-l">New messages</div><div class="dash-stat-delta up">↑ 5 today</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#ede9fe"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="dash-stat-n">87</div><div class="dash-stat-l">PR downloads</div><div class="dash-stat-delta up">↑ 12% this month</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#fee2e2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="dash-stat-n">120</div><div class="dash-stat-l">Profile saves</div><div class="dash-stat-delta up">↑ 3 new</div></div>
+        </div>
+        <div class="dash-grid-2">
+          <div class="dash-card">
+            <div class="dash-card-title">Recent Activity <button>View all</button></div>
+            <div class="act-item"><div class="act-dot" style="background:var(--green-bright)"></div><div class="act-text"><strong>Suya Spot London</strong> viewed your profile</div><div class="act-time">2m ago</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#3b82f6"></div><div class="act-text">New message from <strong>Bella Eats</strong></div><div class="act-time">1h ago</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#8b5cf6"></div><div class="act-text"><strong>3 businesses</strong> downloaded your PR pack</div><div class="act-time">3h ago</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#f59e0b"></div><div class="act-text"><strong>Nomad Kitchen</strong> saved your profile</div><div class="act-time">Yesterday</div></div>
+            <div class="act-item"><div class="act-dot" style="background:var(--green-bright)"></div><div class="act-text">Your profile appeared in <strong>48</strong> searches</div><div class="act-time">Yesterday</div></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-title">Messages <button onclick="setDTab(null,'md-messages')">View all</button></div>
+            <div class="msg-list">
+              <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Bella Eats</div><div class="msg-preview">Hi Adeola! We loved your recent reel and would love to discuss…</div></div><div class="msg-meta"><div class="msg-time">1h</div><div class="msg-badge">1</div></div></div>
+              <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Suya Spot London</div><div class="msg-preview">Would you be available for a tasting event next Thursday?</div></div><div class="msg-meta"><div class="msg-time">3h</div><div class="msg-badge">2</div></div></div>
+              <div class="msg-item"><img class="msg-avatar" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Nomad Kitchen</div><div class="msg-preview">Thanks for reaching out! We'll review your portfolio and get back…</div></div><div class="msg-meta"><div class="msg-time">2d</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Businesses Looking for Creators <button onclick="showScreen('directory')">Browse all →</button></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px">
+            <div onclick="showScreen('biz-profile')" style="border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderColor='var(--green-bright)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" style="width:100%;height:90px;object-fit:cover"><div style="padding:11px"><div style="font-size:13px;font-weight:700;color:var(--ink)">Suya Spot London</div><div style="font-size:11px;color:var(--muted)">West African · London</div><div style="margin-top:7px;font-size:11px;font-weight:700;color:var(--green);background:var(--green-light);display:inline-block;padding:3px 9px;border-radius:var(--r-pill)">Seeking creators</div></div></div>
+            <div onclick="showScreen('biz-profile')" style="border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderColor='var(--green-bright)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80" style="width:100%;height:90px;object-fit:cover"><div style="padding:11px"><div style="font-size:13px;font-weight:700;color:var(--ink)">Bella Eats</div><div style="font-size:11px;color:var(--muted)">Afro-Fusion · Manchester</div><div style="margin-top:7px;font-size:11px;font-weight:700;color:var(--green);background:var(--green-light);display:inline-block;padding:3px 9px;border-radius:var(--r-pill)">Tasting available</div></div></div>
+            <div onclick="showScreen('biz-profile')" style="border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderColor='var(--green-bright)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" style="width:100%;height:90px;object-fit:cover"><div style="padding:11px"><div style="font-size:13px;font-weight:700;color:var(--ink)">Nomad Kitchen</div><div style="font-size:11px;color:var(--muted)">Asian Fusion · Manchester</div><div style="margin-top:7px;font-size:11px;font-weight:700;color:var(--green);background:var(--green-light);display:inline-block;padding:3px 9px;border-radius:var(--r-pill)">Open to collabs</div></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Edit Profile -->
+      <div id="md-profile" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Edit Profile</div><div class="dash-sub">Changes go live after admin review</div></div><button class="view-prof-btn" onclick="showScreen('model-profile')">Preview →</button></div>
+        <div class="dash-card" style="margin-bottom:16px"><div class="dash-card-title">Profile Photo</div><div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&q=80" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--border)"><div><button class="btn-primary" style="margin-bottom:7px;font-size:13px;padding:9px 18px">Upload new photo</button><p style="font-size:12px;color:var(--muted)">JPG, PNG · Max 5MB · Square recommended</p></div></div></div>
+        <div class="dash-card">
+          <div class="dash-card-title">Personal Information</div>
+          <div class="form-2col"><div class="form-row"><label class="form-label">First Name</label><input class="form-input" value="Adeola"></div><div class="form-row"><label class="form-label">Last Name</label><input class="form-input" value="Bello"></div></div>
+          <div class="form-row"><label class="form-label">Username</label><input class="form-input" value="@adeolacreates"></div>
+          <div class="form-row"><label class="form-label">Bio</label><textarea class="form-input">Award-winning food content creator based in London. Specialises in vibrant food photography and recipe reels for restaurants and food brands.</textarea></div>
+          <div class="form-2col"><div class="form-row"><label class="form-label">Category</label><select class="form-input form-sel"><option>Food Creator</option><option>Lifestyle</option><option>Beauty</option></select></div><div class="form-row"><label class="form-label">Location</label><input class="form-input" value="London, UK"></div></div>
+          <div class="form-row"><label class="form-label">WhatsApp</label><input class="form-input" value="+44 7700 900123"></div>
+          <div class="form-row"><label class="form-label">Email</label><input class="form-input" value="hello@adeolacreates.com"></div>
+          <div class="form-row"><label class="form-label">Website</label><input class="form-input" value="adeolacreates.com"></div>
+          <div style="display:flex;gap:10px;margin-top:6px"><button class="btn-primary">Save changes</button><button class="btn-secondary">Cancel</button></div>
+        </div>
+      </div>
+      <!-- Media -->
+      <div id="md-media" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Media & Portfolio</div><div class="dash-sub">Upload photos, videos, and your PR pack</div></div></div>
+        <div class="dash-card" style="margin-bottom:16px"><div class="dash-card-title">Photos (6 / 20)</div><div class="media-upload-grid"><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=200&q=80"><button class="del-btn">×</button></div><div class="media-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg><span>Add</span></div></div></div>
+        <div class="dash-card" style="margin-bottom:16px"><div class="dash-card-title">Sample Videos (2 / 3)</div><div class="upload-zone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><p><strong>Upload video</strong> or drag and drop</p><p>MP4, MOV · Max 100MB</p></div></div>
+        <div class="dash-card"><div class="dash-card-title">PR Pack / Media Kit</div><p style="font-size:13px;color:var(--muted);margin-bottom:14px">Upload your media kit so businesses can download it from your profile.</p><div class="upload-zone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg><p><strong>Upload PDF media kit</strong></p><p>PDF · Max 20MB</p></div></div>
+      </div>
+      <!-- Browse -->
+      <div id="md-browse" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Browse Businesses</div><div class="dash-sub">Find restaurants and brands looking for creators</div></div><button class="btn-primary" onclick="showScreen('directory')">Full directory →</button></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px">
+          <div class="p-card" onclick="showScreen('biz-profile')"><div class="p-card-media biz" style="padding:0;overflow:hidden"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80" style="width:100%;height:100%;object-fit:cover"><div class="p-card-verified"><div class="v-dot"></div>Verified</div></div><div class="p-card-body"><div class="p-card-name">Bella Eats</div><div class="p-card-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>Manchester, UK</div><div class="p-card-tags"><span class="p-tag">Restaurant</span><span class="p-tag">Afro-Fusion</span></div><button class="p-card-btn">View & Contact →</button></div></div>
+          <div class="p-card" onclick="showScreen('biz-profile')"><div class="p-card-media biz" style="padding:0;overflow:hidden"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80" style="width:100%;height:100%;object-fit:cover"><div class="p-card-verified"><div class="v-dot"></div>Verified</div></div><div class="p-card-body"><div class="p-card-name">Suya Spot London</div><div class="p-card-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>London, UK</div><div class="p-card-tags"><span class="p-tag">Takeaway</span><span class="p-tag">West African</span></div><button class="p-card-btn">View & Contact →</button></div></div>
+          <div class="p-card" onclick="showScreen('biz-profile')"><div class="p-card-media biz" style="padding:0;overflow:hidden"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" style="width:100%;height:100%;object-fit:cover"></div><div class="p-card-body"><div class="p-card-name">Nomad Kitchen</div><div class="p-card-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>Manchester, UK</div><div class="p-card-tags"><span class="p-tag">Asian Fusion</span><span class="p-tag">Café</span></div><button class="p-card-btn">View & Contact →</button></div></div>
+        </div>
+      </div>
+      <!-- Analytics -->
+      <div id="md-analytics" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Analytics</div><div class="dash-sub">Your profile performance — last 30 days</div></div></div>
+        <div class="dash-stats-row" style="margin-bottom:20px">
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#e8f5ee"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="dash-stat-n">4,821</div><div class="dash-stat-l">Total views (30d)</div><div class="dash-stat-delta up">↑ 32%</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#ede9fe"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg></div><div class="dash-stat-n">312</div><div class="dash-stat-l">Search appearances</div><div class="dash-stat-delta up">↑ 24%</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#fef3c7"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div><div class="dash-stat-n">87</div><div class="dash-stat-l">PR downloads</div><div class="dash-stat-delta up">↑ 12%</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#fee2e2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="dash-stat-n">24</div><div class="dash-stat-l">Contact requests</div><div class="dash-stat-delta up">↑ 8</div></div>
+        </div>
+        <div class="dash-card"><div class="dash-card-title">Profile Views — Last 30 Days</div><div id="analyticsChart" style="height:150px;background:var(--surface);border-radius:var(--r-md);display:flex;align-items:flex-end;padding:14px;gap:5px;overflow:hidden"></div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:5px"><span>30 days ago</span><span>Today</span></div></div>
+      </div>
+      <!-- Messages (hidden tab reachable from card) -->
+      <div id="md-messages" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Messages</div><div class="dash-sub">Businesses that have reached out</div></div></div>
+        <div class="dash-card"><div class="msg-list">
+          <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Bella Eats <span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:var(--r-pill);margin-left:5px">Business</span></div><div class="msg-preview">Hi Adeola! We loved your recent reel and would love to discuss a collaboration for our new spring menu launch…</div></div><div class="msg-meta"><div class="msg-time">1h ago</div><div class="msg-badge">New</div></div></div>
+          <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Suya Spot London <span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:var(--r-pill);margin-left:5px">Business</span></div><div class="msg-preview">Would you be available for a tasting event next Thursday? We'll cover travel and provide full creative freedom.</div></div><div class="msg-meta"><div class="msg-time">3h ago</div><div class="msg-badge">New</div></div></div>
+          <div class="msg-item"><img class="msg-avatar" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Nomad Kitchen</div><div class="msg-preview">Thanks for reaching out! We'll review your portfolio and get back to you within 48 hours.</div></div><div class="msg-meta"><div class="msg-time">2d ago</div></div></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: BUSINESS DASHBOARD ══ -->
+<div id="screen-biz-dashboard" class="screen">
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <div class="dash-logo-row"><div class="logo-mark" style="width:26px;height:26px;min-width:26px;border-radius:7px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>Creator Plug</div>
+      <div class="dash-nav-sec">Main</div>
+      <div class="dash-nav-item active" onclick="setDTab(this,'bd-overview')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Overview</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'bd-listing')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Edit Listing</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'bd-files')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>Menus & PR Files</div>
+      <div class="dash-nav-item" onclick="setDTab(this,'bd-messages')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Messages<span class="dash-nav-badge">3</span></div>
+      <div class="dash-nav-item" onclick="setDTab(this,'bd-creators')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Browse Creators</div>
+      <div class="dash-user-row" onclick="showScreen('biz-profile')">
+        <img class="dash-user-avatar" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=80&q=80" alt="" style="border-radius:var(--r-sm)">
+        <div><div class="dash-user-name">Bella Eats</div><div class="dash-user-role">Restaurant · Verified ✓</div></div>
+      </div>
+    </aside>
+    <div class="dash-main">
+      <!-- Overview -->
+      <div id="bd-overview" class="dash-tab">
+        <div class="dash-topbar"><div><div class="dash-title">Business Overview</div><div class="dash-sub">Bella Eats · Manchester, UK</div></div><button class="view-prof-btn" onclick="showScreen('biz-profile')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View listing</button></div>
+        <div class="dash-stats-row">
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#e8f5ee"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="dash-stat-n">3,102</div><div class="dash-stat-l">Profile views</div><div class="dash-stat-delta up">↑ 22% this week</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#fef3c7"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="dash-stat-n">3</div><div class="dash-stat-l">New messages</div><div class="dash-stat-delta up">↑ 2 today</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#ede9fe"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div><div class="dash-stat-n">234</div><div class="dash-stat-l">PR downloads</div><div class="dash-stat-delta up">↑ 41 this week</div></div>
+          <div class="dash-stat-card"><div class="dash-stat-icon" style="background:#dbeafe"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="dash-stat-n">18</div><div class="dash-stat-l">Creators contacted you</div><div class="dash-stat-delta up">↑ 6 this week</div></div>
+        </div>
+        <div class="dash-grid-2">
+          <div class="dash-card"><div class="dash-card-title">Incoming Messages <button onclick="setDTab(null,'bd-messages')">View all</button></div><div class="msg-list">
+            <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Adeola Bello</div><div class="msg-preview">Hi! I'd love to collaborate on a food reel for your Jollof Risotto…</div></div><div class="msg-meta"><div class="msg-time">30m</div><div class="msg-badge">1</div></div></div>
+            <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Zara Okonkwo</div><div class="msg-preview">I specialise in restaurant promos and would love to discuss…</div></div><div class="msg-meta"><div class="msg-time">2h</div><div class="msg-badge">1</div></div></div>
+            <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Imani Fashola</div><div class="msg-preview">Your aesthetic aligns perfectly with my content style…</div></div><div class="msg-meta"><div class="msg-time">4h</div><div class="msg-badge">1</div></div></div>
+          </div></div>
+          <div class="dash-card"><div class="dash-card-title">Recent Activity</div>
+            <div class="act-item"><div class="act-dot" style="background:var(--green-bright)"></div><div class="act-text"><strong>Adeola Bello</strong> downloaded your PR pack</div><div class="act-time">30m</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#3b82f6"></div><div class="act-text"><strong>Zara Okonkwo</strong> saved your listing</div><div class="act-time">2h</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#8b5cf6"></div><div class="act-text">Your listing appeared in <strong>91</strong> searches</div><div class="act-time">Today</div></div>
+            <div class="act-item"><div class="act-dot" style="background:#f59e0b"></div><div class="act-text">Menu PDF viewed <strong>14 times</strong> today</div><div class="act-time">Today</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Edit Listing -->
+      <div id="bd-listing" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Edit Listing</div><div class="dash-sub">Update your business info and cover image</div></div><button class="view-prof-btn" onclick="showScreen('biz-profile')">Preview →</button></div>
+        <div class="dash-card" style="margin-bottom:16px"><div class="dash-card-title">Cover & Logo</div><div style="height:140px;border-radius:var(--r-md);overflow:hidden;position:relative;margin-bottom:12px"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" style="width:100%;height:100%;object-fit:cover"><button class="btn-primary" style="position:absolute;bottom:10px;right:10px;font-size:12px;padding:7px 14px">Change cover</button></div><div style="display:flex;align-items:center;gap:14px"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&q=80" style="width:60px;height:60px;border-radius:var(--r-md);object-fit:cover;border:3px solid var(--border)"><div><button class="btn-primary" style="font-size:12px;padding:8px 16px;margin-bottom:5px">Change logo</button><p style="font-size:12px;color:var(--muted)">PNG or JPG · Square · Min 200×200px</p></div></div></div>
+        <div class="dash-card">
+          <div class="dash-card-title">Business Information</div>
+          <div class="form-row"><label class="form-label">Business Name</label><input class="form-input" value="Bella Eats"></div>
+          <div class="form-row"><label class="form-label">Description</label><textarea class="form-input">Upscale Afro-Fusion dining in the heart of Manchester. We combine the bold flavours of West Africa with modern European culinary techniques.</textarea></div>
+          <div class="form-2col"><div class="form-row"><label class="form-label">Category</label><select class="form-input form-sel"><option>Restaurant</option><option>Café</option><option>Takeaway</option><option>Bar & Grill</option></select></div><div class="form-row"><label class="form-label">Cuisine</label><input class="form-input" value="Afro-Fusion"></div></div>
+          <div class="form-row"><label class="form-label">Address</label><input class="form-input" value="14 Princess Street, Manchester M1 4NB"></div>
+          <div class="form-2col"><div class="form-row"><label class="form-label">WhatsApp</label><input class="form-input" value="+44 161 900 4567"></div><div class="form-row"><label class="form-label">Email</label><input class="form-input" value="collabs@bellaeats.co.uk"></div></div>
+          <div style="display:flex;gap:10px;margin-top:6px"><button class="btn-primary">Save changes</button><button class="btn-secondary">Cancel</button></div>
+        </div>
+      </div>
+      <!-- Files -->
+      <div id="bd-files" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Menus & PR Files</div><div class="dash-sub">Creators download these directly from your listing</div></div></div>
+        <div class="dash-card" style="margin-bottom:16px">
+          <div class="dash-card-title">Uploaded Files</div>
+          <div class="pr-file"><div class="pr-file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="pr-file-info"><div class="pr-file-name">Bella Eats — Press Kit 2025.pdf</div><div class="pr-file-size">2.4 MB · PDF · Downloaded 234 times</div></div><span class="pr-dl" style="background:#fee2e2;color:#dc2626;cursor:pointer">Delete</span></div>
+          <div class="pr-file"><div class="pr-file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="pr-file-info"><div class="pr-file-name">Full Menu — Spring 2025.pdf</div><div class="pr-file-size">1.1 MB · PDF · Downloaded 118 times</div></div><span class="pr-dl" style="background:#fee2e2;color:#dc2626;cursor:pointer">Delete</span></div>
+          <div style="margin-top:14px"><div class="upload-zone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg><p><strong>Upload menu or PR file</strong></p><p>PDF, DOCX · Max 20MB</p></div></div>
+        </div>
+        <div class="dash-card"><div class="dash-card-title">Photo Gallery (4 / 20)</div><div class="media-upload-grid"><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=80"><button class="del-btn">×</button></div><div class="media-up-thumb"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&q=80"><button class="del-btn">×</button></div><div class="media-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg><span>Add</span></div></div></div>
+      </div>
+      <!-- Messages -->
+      <div id="bd-messages" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Messages</div><div class="dash-sub">Creators reaching out to collaborate</div></div></div>
+        <div class="dash-card"><div class="msg-list">
+          <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Adeola Bello <span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:var(--r-pill);margin-left:5px">Creator · Verified</span></div><div class="msg-preview">Hi! I'd love to collaborate on a food reel for your Jollof Risotto. I have 48K followers on Instagram and specialise in…</div></div><div class="msg-meta"><div class="msg-time">30m ago</div><div class="msg-badge">New</div></div></div>
+          <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Zara Okonkwo <span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:var(--r-pill);margin-left:5px">Creator · Verified</span></div><div class="msg-preview">I specialise in restaurant promos and would love to discuss a collaboration for your venue…</div></div><div class="msg-meta"><div class="msg-time">2h ago</div><div class="msg-badge">New</div></div></div>
+          <div class="msg-item unread"><img class="msg-avatar" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Imani Fashola <span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:var(--r-pill);margin-left:5px">Creator · Verified</span></div><div class="msg-preview">Your aesthetic aligns perfectly with my content style. Would love to visit for a shoot…</div></div><div class="msg-meta"><div class="msg-time">4h ago</div><div class="msg-badge">New</div></div></div>
+          <div class="msg-item"><img class="msg-avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&q=80" alt=""><div class="msg-info"><div class="msg-name">Kwame Asante</div><div class="msg-preview">Thanks for the quick response! Looking forward to our collab next month.</div></div><div class="msg-meta"><div class="msg-time">2d ago</div></div></div>
+        </div></div>
+      </div>
+      <!-- Browse Creators -->
+      <div id="bd-creators" class="dash-tab" style="display:none">
+        <div class="dash-topbar"><div><div class="dash-title">Browse Creators</div><div class="dash-sub">Find verified models and influencers to collaborate with</div></div><button class="btn-primary" onclick="showScreen('directory')">Full directory →</button></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px">
+          <div class="p-card" onclick="showScreen('model-profile')"><div class="p-card-media" style="padding:0;overflow:hidden"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" style="width:100%;height:100%;object-fit:cover"><div class="p-card-verified"><div class="v-dot"></div>Verified</div></div><div class="p-card-body"><div class="p-card-name">Adeola Bello</div><div class="p-card-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>London, UK</div><div class="p-card-tags"><span class="p-tag">Food</span><span class="p-tag">Lifestyle</span></div><button class="p-card-btn">View & Contact →</button></div></div>
+          <div class="p-card" onclick="showScreen('model-profile')"><div class="p-card-media" style="padding:0;overflow:hidden"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80" style="width:100%;height:100%;object-fit:cover"><div class="p-card-verified"><div class="v-dot"></div>Verified</div></div><div class="p-card-body"><div class="p-card-name">Zara Okonkwo</div><div class="p-card-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>London, UK</div><div class="p-card-tags"><span class="p-tag">Promo</span><span class="p-tag">Reviews</span></div><button class="p-card-btn">View & Contact →</button></div></div>
+          <div class="p-card" onclick="showScreen('model-profile')"><div class="p-card-media" style="padding:0;overflow:hidden"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80" style="width:100%;height:100%;object-fit:cover"><div class="p-card-verified"><div class="v-dot"></div>Verified</div></div><div class="p-card-body"><div class="p-card-name">Imani Fashola</div><div class="p-card-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>Manchester, UK</div><div class="p-card-tags"><span class="p-tag">Aesthetics</span><span class="p-tag">Styling</span></div><button class="p-card-btn">View & Contact →</button></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: LOGIN ══ -->
+<div id="screen-login" class="screen" style="padding-top:0;background:var(--ink)">
+  <div style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr">
+    <!-- Left: image panel (hidden on mobile) -->
+    <div style="position:relative;overflow:hidden;background:var(--ink)" class="auth-img-panel">
+      <!-- Stacked creator images -->
+      <div style="position:absolute;inset:0;display:grid;grid-template-rows:1fr 1fr;gap:3px">
+        <div style="overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=80" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75)">
+          <div style="position:absolute;bottom:16px;left:16px;display:flex;align-items:center;gap:8px">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--green-bright)"></div>
+            <span style="font-size:12px;font-weight:600;color:white">Adeola · Food Creator · London</span>
+          </div>
+        </div>
+        <div style="overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:3px">
+          <div style="overflow:hidden;position:relative">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.7)">
+            <div style="position:absolute;bottom:12px;left:12px"><span style="font-size:11px;font-weight:600;color:white">Zara · London</span></div>
+          </div>
+          <div style="overflow:hidden;position:relative">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.65)">
+            <div style="position:absolute;bottom:12px;left:12px"><span style="font-size:11px;font-weight:600;color:white">Bella Eats · Manchester</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Brand overlay -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,14,10,0.55) 0%,transparent 60%)"></div>
+      <div style="position:absolute;top:32px;left:32px;z-index:2">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:20px">
+          <div class="logo-mark" style="width:32px;height:32px;min-width:32px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:white;letter-spacing:-0.02em">Creator Plug</span>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.025em;max-width:280px">Where creators get discovered.</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px;max-width:260px;line-height:1.6">Join 12K+ verified creators and 3,400+ businesses already collaborating.</div>
+        <!-- Social proof strip -->
+        <div style="display:flex;gap:8px;margin-top:24px;flex-wrap:wrap">
+          <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:var(--r-pill);padding:5px 12px;display:flex;align-items:center;gap:5px;backdrop-filter:blur(6px)">
+            <div style="width:5px;height:5px;border-radius:50%;background:var(--green-bright)"></div>
+            <span style="font-size:11px;font-weight:600;color:white">Admin Verified</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:var(--r-pill);padding:5px 12px;backdrop-filter:blur(6px)">
+            <span style="font-size:11px;font-weight:600;color:white">Zero Agency Fees</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile bg + logo bar (mobile only) -->
+    <div class="auth-mobile-fullbg" style="display:none;background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=85')"></div>
+    <div class="auth-mobile-logo-top" style="display:none;">
+      <div class="logo-mark" style="width:28px;height:28px;min-width:28px;border-radius:7px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.02em">Creator Plug</span>
+    </div>
+    <!-- Right: form panel -->
+    <div class="auth-form-sheet" style="background:white;display:flex;align-items:center;justify-content:center;padding:40px 36px;overflow-y:auto">
+      <div style="max-width:360px;width:100%">
+        <!-- Mobile logo (shown when image panel hidden) -->
+        <div class="auth-mobile-logo" style="display:none;align-items:center;gap:8px;margin-bottom:32px">
+          <div class="logo-mark" style="width:30px;height:30px;min-width:30px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:var(--ink)">Creator Plug</span>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-0.025em;margin-bottom:6px">Welcome back</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6">Sign in to your account and continue growing.</div>
+        <button class="auth-social-btn" style="margin-bottom:18px"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Continue with Google</button>
+        <div class="auth-divider">or sign in with email</div>
+        <div class="form-row"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="you@example.com" style="font-size:15px;padding:13px 16px"></div>
+        <div class="form-row"><label class="form-label">Password</label><input class="form-input" type="password" placeholder="Your password" style="font-size:15px;padding:13px 16px"></div>
+        <div style="display:flex;justify-content:flex-end;margin:-4px 0 22px"><a style="font-size:13px;font-weight:600;color:var(--green);cursor:pointer">Forgot password?</a></div>
+        <button class="btn-primary" style="width:100%;justify-content:center;padding:15px;font-size:15px;margin-bottom:12px;border-radius:14px" onclick="showScreen('model-dashboard')">Sign in as Creator</button>
+        <button class="btn-secondary" style="width:100%;justify-content:center;padding:14px;font-size:15px;border-radius:14px" onclick="showScreen('biz-dashboard')">Sign in as Business</button>
+        <div class="auth-switch" style="margin-top:24px">No account? <a onclick="showScreen('signup')">Join free →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: SIGNUP ══ -->
+<div id="screen-signup" class="screen" style="padding-top:0;background:var(--ink)">
+  <div style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr">
+    <!-- Left: image panel -->
+    <div style="position:relative;overflow:hidden;background:var(--ink)" class="auth-img-panel">
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px">
+        <div style="overflow:hidden;position:relative;grid-column:1;grid-row:1/3">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&q=80" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.72)">
+        </div>
+        <div style="overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.65)">
+        </div>
+        <div style="overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.65)">
+        </div>
+      </div>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,14,10,0.6) 0%,transparent 70%)"></div>
+      <div style="position:absolute;top:32px;left:32px;z-index:2">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:20px">
+          <div class="logo-mark" style="width:32px;height:32px;min-width:32px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:white;letter-spacing:-0.02em">Creator Plug</span>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.025em;max-width:280px">Start your creator journey today.</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-top:10px;max-width:260px;line-height:1.6">Free to join. Admin-verified profiles. Go live in minutes.</div>
+        <!-- Testimonial -->
+        <div style="margin-top:28px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--r-lg);padding:16px 18px;backdrop-filter:blur(8px);max-width:280px">
+          <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:10px;font-style:italic">"I booked 3 restaurants in my first week. No agency, no middleman."</div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=60&q=80" style="width:28px;height:28px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(255,255,255,0.3)">
+            <div><div style="font-size:12px;font-weight:700;color:white">Adeola B.</div><div style="font-size:11px;color:rgba(255,255,255,0.45)">Food Creator · London</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile bg + logo bar (mobile only) -->
+    <div class="auth-mobile-fullbg" style="display:none;background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=900&q=85')"></div>
+    <div class="auth-mobile-logo-top" style="display:none;">
+      <div class="logo-mark" style="width:28px;height:28px;min-width:28px;border-radius:7px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.02em">Creator Plug</span>
+    </div>
+    <!-- Right: signup form -->
+    <div class="auth-form-sheet" style="background:white;display:flex;align-items:center;justify-content:center;padding:36px;overflow-y:auto">
+      <div style="max-width:360px;width:100%">
+        <div class="auth-mobile-logo" style="display:none;align-items:center;gap:8px;margin-bottom:28px">
+          <div class="logo-mark" style="width:30px;height:30px;min-width:30px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="5" stroke="white" stroke-width="2.2"/><circle cx="8" cy="12" r="2.2" fill="white"/><path d="M13.5 12h4" stroke="white" stroke-width="2.2" stroke-linecap="round"/><path d="M15.5 10v4" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:var(--ink)">Creator Plug</span>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-0.025em;margin-bottom:6px">Create your account</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:22px">Free forever. No agency fees.</div>
+        <!-- User type toggle -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px">
+          <button id="authTypeCreator" onclick="setAuthType('creator')" style="padding:14px 10px;border-radius:var(--r-lg);border:2px solid var(--green-bright);background:var(--green-light);cursor:pointer;text-align:center;transition:all 0.2s">
+            <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;margin:0 auto 6px;border:2px solid rgba(45,192,110,0.5)"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="font-size:13px;font-weight:700;color:var(--green)">I'm a Creator</div>
+            <div style="font-size:11px;color:var(--green);opacity:0.7;margin-top:2px">Model / Influencer</div>
+          </button>
+          <button id="authTypeBiz" onclick="setAuthType('business')" style="padding:14px 10px;border-radius:var(--r-lg);border:2px solid var(--border);background:white;cursor:pointer;text-align:center;transition:all 0.2s">
+            <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;margin:0 auto 6px;border:2px solid var(--border)"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&q=80" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="font-size:13px;font-weight:700;color:var(--ink)">I'm a Business</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px">Restaurant / Brand</div>
+          </button>
+        </div>
+        <button class="auth-social-btn" style="margin-bottom:16px"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Sign up with Google</button>
+        <div class="auth-divider">or use email</div>
+        <div class="form-2col"><div class="form-row"><label class="form-label">First name</label><input class="form-input" placeholder="Adeola" style="padding:12px 14px"></div><div class="form-row"><label class="form-label">Last name</label><input class="form-input" placeholder="Bello" style="padding:12px 14px"></div></div>
+        <div class="form-row"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="you@example.com" style="padding:12px 14px"></div>
+        <div class="form-row"><label class="form-label">Password</label><input class="form-input" type="password" placeholder="Min 8 characters" style="padding:12px 14px"></div>
+        <div class="form-row"><label class="form-label">Location</label><input class="form-input" placeholder="London, UK" style="padding:12px 14px"></div>
+        <button class="btn-primary" style="width:100%;justify-content:center;padding:15px;font-size:15px;margin-top:6px;border-radius:14px" onclick="showScreen('model-dashboard')">Create free account →</button>
+        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.7">By signing up you agree to our Terms & Privacy Policy.<br>All profiles admin-reviewed before going live.</p>
+        <div class="auth-switch" style="margin-top:16px">Have an account? <a onclick="showScreen('login')">Sign in →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Auth image panel responsive */
+.auth-img-panel{display:block}
+@media(max-width:700px){
+  .auth-img-panel{display:none!important}
+  #screen-login > div,#screen-signup > div{grid-template-columns:1fr!important}
+  .auth-mobile-logo{display:flex!important}
+}
+/* Auth social button */
+.auth-social-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:13px;border:1.5px solid var(--border);border-radius:14px;background:white;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.auth-social-btn:hover{background:var(--surface);border-color:var(--green-mid)}
+.auth-divider{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--muted);font-size:12px;font-weight:600}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-switch{text-align:center;font-size:13px;color:var(--muted)}
+.auth-switch a{color:var(--green);font-weight:700;cursor:pointer}
+.auth-switch a:hover{text-decoration:underline}
+
+/* ─── MOBILE AUTH BACKGROUND ─── */
+@media(max-width:700px){
+  .auth-screen-wrap{position:relative;min-height:100vh;}
+  .auth-mobile-fullbg{
+    display:block!important;
+    position:fixed;inset:0;z-index:0;
+    background-size:cover;background-position:center top;
+    filter:brightness(0.55);
+  }
+  .auth-form-sheet{
+    position:relative;z-index:1;
+    background:rgba(255,255,255,0.95)!important;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-radius:24px 24px 0 0;
+    min-height:calc(100vh - 72px);
+    margin-top:72px;
+    padding:28px 24px 100px!important;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.35);
+    display:flex;align-items:flex-start;justify-content:center;
+    overflow-y:auto;
+  }
+  .auth-form-sheet > div{
+    max-width:360px;width:100%;
+  }
+  .auth-mobile-logo-top{
+    display:flex!important;
+    position:fixed;top:0;left:0;right:0;z-index:2;
+    padding:14px 20px;align-items:center;gap:8px;
+    background:rgba(0,0,0,0.18);backdrop-filter:blur(6px);
+  }
+}
+@media(min-width:701px){
+  .auth-mobile-fullbg{display:none!important;}
+  .auth-mobile-logo-top{display:none!important;}
+  .auth-form-sheet{
+    background:white!important;
+    display:flex;align-items:center;justify-content:center;
+    padding:40px 36px!important;overflow-y:auto;
+  }
+}
+</style>
+
+<script>
+// ── SPA routing ────────────────────────────────────────
+const allProfiles = [
+  {id:'adeola',type:'model',name:'Adeola Bello',loc:'London, UK',tags:['Food','Lifestyle'],img:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80',verified:true,handle:'@adeolacreates',bio:'Award-winning food content creator based in London. I specialise in vibrant food photography and recipe reels for restaurants and food brands. Available for tasting events, restaurant walkthroughs, product launches, and brand ambassador roles.',followers:'48.2K',collabs:'120+',wa:'+44 7700 900123',email:'hello@adeolacreates.com'},
+  {id:'zara',type:'model',name:'Zara Okonkwo',loc:'London, UK',tags:['Promo','Reviews'],img:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80',verified:true,handle:'@zaraokonkwo',bio:'Your go-to creator for honest restaurant reviews and high-energy promo content. Based in East London with a love for bold flavours and street food culture. 92K engaged followers across TikTok and Instagram.',followers:'92K',collabs:'65+',wa:'+44 7700 900456',email:'zara@zaraokonkwo.co.uk'},
+  {id:'kwame',type:'model',name:'Kwame Asante',loc:'Berlin, Germany',tags:['Lifestyle','Reels'],img:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80',verified:true,handle:'@kwameasante',bio:'Berlin-based lifestyle and travel creator. I shoot cinematic reels that make food look like art. Available for pan-European campaigns, tasting events, and brand partnerships.',followers:'215K',collabs:'89+',wa:'+49 157 0000 1234',email:'kwame@kwameasante.de'},
+  {id:'imani',type:'model',name:'Imani Fashola',loc:'Manchester, UK',tags:['Aesthetics','Styling'],img:'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80',verified:true,handle:'@imanifashola',bio:'Aesthetics, styling and food photography from Manchester. I bring a clean editorial eye to every collaboration. Specialising in flat-lay content, product styling, and restaurant aesthetic shoots.',followers:'67K',collabs:'38+',wa:'+44 7700 900789',email:'imani@imanifashola.com'},
+  {id:'dev',type:'model',name:'Dev Malhotra',loc:'New York, US',tags:['Food','Wellness'],img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',verified:true,handle:'@devmalhotra',bio:'NYC-based food and wellness creator. Covering everything from fine dining to hidden gems across the five boroughs. Podcast host. 300K+ across all platforms with a highly engaged health-conscious audience.',followers:'300K',collabs:'112+',wa:'+1 917 000 1234',email:'dev@devmalhotra.com'},
+  {id:'sofia',type:'model',name:'Sofia Reyes',loc:'Los Angeles, US',tags:['Lifestyle','Beauty'],img:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80',verified:false,handle:'@sofiareyes',bio:'LA lifestyle and beauty creator blending food culture with fashion. Warm, vibrant aesthetic with a Gen Z audience. Perfect for trendy café launches, dessert brands, and lifestyle crossover campaigns.',followers:'44K',collabs:'22+',wa:'+1 310 000 5678',email:'sofia@sofiareyes.co'},
+  {id:'amara',type:'model',name:'Amara Davies',loc:'London, UK',tags:['Beauty','Fitness'],img:'https://images.unsplash.com/photo-1485893226073-c09a8dcd2e3d?w=400&q=80',verified:true,handle:'@amaradavies',bio:'Fitness and beauty creator from South London. I partner with health-conscious food brands, gyms, and supplement companies for authentic, high-engagement content that drives real results.',followers:'129K',collabs:'74+',wa:'+44 7700 900321',email:'amara@amaradavies.co.uk'},
+  {id:'tolu',type:'model',name:'Tolu Adeyemi',loc:'Lagos, Nigeria',tags:['Food','Culture'],img:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',verified:true,handle:'@toluadeyemi',bio:'Lagos-based food and culture creator championing African cuisine globally. My content celebrates bold flavours and the stories behind them. 410K+ following with massive reach across West Africa and the diaspora.',followers:'410K',collabs:'130+',wa:'+234 801 234 5678',email:'tolu@toluadeyemi.ng'},
+  {id:'chloe',type:'model',name:'Chloe Martin',loc:'Paris, France',tags:['Gastronomy','Travel'],img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80',verified:true,handle:'@chloemartincreates',bio:'French food and travel creator based in Paris. I cover Michelin-starred dining, hidden bistros, and artisan patisseries with a cinematic, editorial flair. Available for brand trips and fine dining partnerships.',followers:'155K',collabs:'58+',wa:'+33 6 00 00 00 01',email:'chloe@chloemartincreates.fr'},
+  {id:'rex',type:'model',name:'Rex Okpara',loc:'Birmingham, UK',tags:['Street Food','Reviews'],img:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',verified:true,handle:'@rexreviews',bio:'Birmingham street food expert. I find the best bites so you do not have to. Straight-talking, honest reviews with real audience engagement. Perfect for independent restaurants, food markets, and local brands.',followers:'78K',collabs:'44+',wa:'+44 7700 900654',email:'rex@rexreviews.co.uk'},
+  {id:'bella',type:'business',name:'Bella Eats',loc:'Manchester, UK',tags:['Restaurant','Afro-Fusion'],img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80',verified:true},
+  {id:'suya',type:'business',name:'Suya Spot London',loc:'London, UK',tags:['Takeaway','West African'],img:'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80',verified:true},
+  {id:'nomad',type:'business',name:'Nomad Kitchen',loc:'Manchester, UK',tags:['Asian Fusion','Café'],img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80',verified:false},
+  {id:'verde',type:'business',name:'Verde Bistro',loc:'London, UK',tags:['Vegetarian','Brunch'],img:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80',verified:true},
+  {id:'jin',type:'model',name:'Jin Park',loc:'Berlin, Germany',tags:['Food','Tech'],img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',verified:true,handle:'@jinparkberlin',bio:'Food tech creator and culinary experimenter based in Berlin. I cover everything from lab-grown meat to robotic kitchens with a Korean-German aesthetic twist. Perfect for innovative food brands.',followers:'88K',collabs:'31+',wa:'+49 157 0000 5678',email:'jin@jinpark.de'},
+];
+
+let dirFilter = 'all';
+
+// Open individual creator profile with their own data
+function openCreatorProfile(id) {
+  const p = allProfiles.find(x => x.id === id);
+  if (!p || p.type !== 'model') { showScreen('model-profile'); return; }
+  const s = document.getElementById('screen-model-profile');
+  if (!s) { showScreen('model-profile'); return; }
+  // Avatar + hero bg
+  const av = s.querySelector('.prof-avatar'); if(av){av.src=p.img;av.alt=p.name;}
+  const hbg = s.querySelector('.prof-hero-bg'); if(hbg) hbg.style.backgroundImage="url('"+p.img+"')";
+  // Name & handle
+  const nm = s.querySelector('.prof-name'); if(nm) nm.textContent=p.name;
+  const hd = s.querySelector('.prof-handle'); if(hd) hd.textContent=(p.handle||('@'+p.name.toLowerCase().replace(/\s+/g,'')))+' · '+p.tags.join(' & ')+' Creator';
+  // Location meta
+  const metas = s.querySelectorAll('.prof-meta-item'); if(metas[0]) metas[0].lastChild.textContent=' '+p.loc;
+  // Tags
+  const tgs = s.querySelector('.prof-tags'); if(tgs) tgs.innerHTML=p.tags.map(t=>'<span class="prof-tag">'+t+'</span>').join('');
+  // Stats
+  const sns = s.querySelectorAll('.prof-stat-n');
+  if(sns[0]) sns[0].textContent=p.followers||'—';
+  if(sns[1]) sns[1].textContent=p.collabs||'—';
+  // Bio
+  const bio = s.querySelector('.prof-bio'); if(bio) bio.textContent=p.bio||'';
+  // Contact section header
+  const ch = s.querySelector('.contact-card h4'); if(ch) ch.textContent='Contact '+p.name.split(' ')[0];
+  // Contact values — WA & Email
+  const rows = s.querySelectorAll('.c-row');
+  rows.forEach(row => {
+    const lbl = row.querySelector('.c-lbl-t'); if(!lbl) return;
+    const val = row.querySelector('.c-lbl-v'); if(!val) return;
+    if(lbl.textContent==='WhatsApp' && p.wa) val.textContent=p.wa;
+    if(lbl.textContent==='Email' && p.email) val.textContent=p.email;
+  });
+  // Social handles
+  const igHandle = s.querySelector('.ig-handle'); if(igHandle && p.handle) igHandle.textContent=p.handle+' · '+p.followers+' followers';
+  const ttHandle = s.querySelector('.tt-handle'); if(ttHandle && p.handle) ttHandle.textContent=p.handle;
+  showScreen('model-profile');
+}
+
+function showScreen(name) {
+  const allLanding = document.querySelectorAll('div.hero,section,.ticker-wrap,.stats-bar,.final-cta,footer');
+  const mobNav = document.querySelector('.mob-nav');
+  const navEl = document.getElementById('nav');
+
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+
+  if (name === 'home') {
+    allLanding.forEach(el => el.style.display = '');
+    if (mobNav) mobNav.style.display = '';
+    navEl.classList.remove('solid');
+    updateNavLinks(false);
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  allLanding.forEach(el => el.style.display = 'none');
+  navEl.classList.add('solid');
+  updateNavLinks(true, name);
+
+  const screen = document.getElementById('screen-' + name);
+  if (screen) {
+    screen.classList.add('active');
+    window.scrollTo(0, 0);
+    if (name === 'directory') renderDirectory('');
+    if (name === 'model-dashboard') buildChart();
+  }
+}
+
+function updateNavLinks(onScreen, screenName) {
+  const center = document.getElementById('navCenter');
+  const right = document.getElementById('navRight');
+  if (!center || !right) return;
+
+  if (onScreen) {
+    center.innerHTML = `
+      <button class="nav-link" onclick="showScreen('home')">Home</button>
+      <button class="nav-link" onclick="showScreen('directory')">Directory</button>
+    `;
+    const isDash = screenName === 'model-dashboard' || screenName === 'biz-dashboard';
+    if (isDash) {
+      right.innerHTML = `
+        <div class="nav-divider"></div>
+        <button class="btn-nav btn-nav-ghost" onclick="showScreen('home')">← Home</button>
+        <button class="btn-nav btn-nav-green" onclick="showScreen('${screenName === 'model-dashboard' ? 'model-profile' : 'biz-profile'}')">View profile</button>
+      `;
+    } else {
+      right.innerHTML = `
+        <div class="nav-divider"></div>
+        <button class="btn-nav btn-nav-ghost" onclick="showScreen('login')">Log in</button>
+        <button class="btn-nav btn-nav-green" onclick="showScreen('signup')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+          Join free
+        </button>
+      `;
+    }
+  } else {
+    center.innerHTML = `
+      <button class="nav-link nav-hide" onclick="document.getElementById('how')&&document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</button>
+      <button class="nav-link nav-hide" onclick="showScreen('directory')">Directory</button>
+      <button class="nav-link nav-hide" onclick="document.getElementById('who')&&document.getElementById('who').scrollIntoView({behavior:'smooth'})">For Creators</button>
+      <button class="nav-link nav-hide" onclick="document.getElementById('who')&&document.getElementById('who').scrollIntoView({behavior:'smooth'})">For Businesses</button>
+    `;
+    right.innerHTML = `
+      <div class="nav-divider"></div>
+      <button class="btn-nav btn-nav-ghost" onclick="showScreen('login')">Log in</button>
+      <button class="btn-nav btn-nav-green" onclick="showScreen('signup')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+        Join free
+      </button>
+    `;
+  }
+}
+
+// Directory
+function setDirTab(btn, type) {
+  document.querySelectorAll('.dir-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  dirFilter = type;
+  renderDirectory('');
+}
+function filterDir(val) { renderDirectory(val); }
+function renderDirectory(search) {
+  const grid = document.getElementById('dirGrid');
+  const countEl = document.getElementById('dirCount');
+  if (!grid) return;
+  const q = (search || '').toLowerCase();
+  const filtered = allProfiles.filter(p => {
+    if (dirFilter !== 'all' && p.type !== dirFilter) return false;
+    if (q) return p.name.toLowerCase().includes(q) || p.loc.toLowerCase().includes(q) || p.tags.some(t => t.toLowerCase().includes(q));
+    return true;
+  });
+  countEl.innerHTML = `Showing <strong>${filtered.length}</strong> profiles`;
+  grid.innerHTML = filtered.map(p => `
+    <div class="p-card rv in" onclick="${p.type === 'business' ? 'showScreen(\'biz-profile\')' : 'openCreatorProfile(\''+p.id+'\')'}" style="cursor:pointer">
+      <div class="p-card-media${p.type === 'business' ? ' biz' : ''}" style="padding:0;overflow:hidden">
+        <img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+        ${p.verified ? '<div class="p-card-verified"><div class="v-dot"></div> Verified</div>' : ''}
+      </div>
+      <div class="p-card-body">
+        <div class="p-card-name">${p.name}</div>
+        <div class="p-card-loc">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-6.5-6-11a6 6 0 1112 0c0 4.5-6 11-6 11z"/></svg>
+          ${p.loc}
+        </div>
+        <div class="p-card-tags">${p.tags.map(t => `<span class="p-tag">${t}</span>`).join('')}</div>
+        <button class="p-card-btn">View Profile →</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Dashboard tabs
+function setDTab(btn, tabId) {
+  const tab = document.getElementById(tabId);
+  if (!tab) return;
+  const parent = tab.closest('.dash-main');
+  parent.querySelectorAll('.dash-tab').forEach(t => t.style.display = 'none');
+  tab.style.display = 'block';
+  if (btn) {
+    btn.closest('.dash-layout').querySelectorAll('.dash-nav-item').forEach(n => n.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+
+// Auth type
+function setAuthType(type) {
+  const cBtn = document.getElementById('authTypeCreator');
+  const bBtn = document.getElementById('authTypeBiz');
+  if (!cBtn || !bBtn) return;
+  if (type === 'creator') {
+    cBtn.style.borderColor = 'var(--green-bright)';
+    cBtn.style.background = 'var(--green-light)';
+    bBtn.style.borderColor = 'var(--border)';
+    bBtn.style.background = 'white';
+  } else {
+    bBtn.style.borderColor = 'var(--green-bright)';
+    bBtn.style.background = 'var(--green-light)';
+    cBtn.style.borderColor = 'var(--border)';
+    cBtn.style.background = 'white';
+  }
+}
+
+// Analytics bar chart
+function buildChart() {
+  const el = document.getElementById('analyticsChart');
+  if (!el || el.children.length > 0) return;
+  const vals = [45,62,58,80,72,95,88,110,102,120,98,115,130,145,138,152,148,165,170,158,180,175,192,185,200,195,210,205,220,215];
+  const max = Math.max(...vals);
+  el.innerHTML = vals.map((h,i) => `<div style="flex:1;background:${i>24?'var(--green-bright)':'var(--green-light)'};border-radius:3px 3px 0 0;height:${(h/max*100).toFixed(1)}%;cursor:pointer;transition:background 0.2s" onmouseover="this.style.background='var(--green-mid)'" onmouseout="this.style.background='${i>24?'var(--green-bright)':'var(--green-light)'}'" title="Day ${i+1}: ${h} views"></div>`).join('');
+}
+
+// Mobile nav click
+function mobNavClick(screen, btn) {
+  document.querySelectorAll('.mob-nav-item').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  showScreen(screen);
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  // nav solid on scroll (landing only)
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (!document.querySelector('.screen.active')) {
+      nav.classList.toggle('solid', window.scrollY > 80);
+    }
+  }, {passive: true});
+});
+</script>
+</body>
+</html>
